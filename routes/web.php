@@ -12,9 +12,34 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('principal');
+});
+
+Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
+
+    Route::get('',[
+        'uses'=>'AdminController@getAdminIndex',
+        'as'=>'admin.index'
+    ]);
+
+    Route::group(['prefix'=>'centros'], function (){
+
+    });
+
+    Route::group(['prefix'=>'materiales'], function (){
+
+    });
+
+    Route::group(['prefix'=>'usuarios'], function (){
+
+    });
+
+    Route::group(['prefix'=>'cupones'], function (){
+
+    });
+
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
