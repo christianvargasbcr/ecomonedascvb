@@ -3,7 +3,7 @@
     <head>
         @include('partials.head')
     </head>
-    <body style="background-color: #e0f2f1">
+    <body style="background-color: #e0f2f1; margin-bottom: 100px;">
         <header>
             @include('partials.header')
         </header>
