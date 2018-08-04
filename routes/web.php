@@ -40,6 +40,14 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
 
 });
 
+Route::group(['prefix'=>'cliente','middleware'=>'auth'],function (){
+
+    Route::get('',[
+        'uses'=>'ClienteController@getClienteIndex',
+        'as'=>'cliente.index'
+    ]);
+});
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

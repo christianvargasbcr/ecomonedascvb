@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                             <br>
-                            <input type="hidden" value="1" id="role" name="role" />
+                            <input type="hidden" value="3" id="role" name="role" />
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-2">
                                     <button type="submit" class="btn btn-success btn-block">
