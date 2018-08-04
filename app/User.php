@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'direccion', 'telefono', 'password',
     ];
 
     /**
@@ -34,9 +34,6 @@ class User extends Authenticatable
             'user_id',
             'role_id'
         )->withTimestamps();
-    }
-    public function videojuegos(){
-        return $this->hasMany('App\Videojuego');
     }
 
     public function tieneAcceso(array $permissions){
