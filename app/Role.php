@@ -9,12 +9,7 @@ class Role extends Model
     protected $fillable=['name','permissions'];
 
     public function users(){
-        return $this->belongsToMany(
-            'App\User',
-            'role_user',
-            'role_id',
-            'user_id'
-        )->withTimestamps();
+        return $this->hasMany('App\User');
     }
 
     public function tieneAcceso(array $permissions){

@@ -28,7 +28,7 @@
             <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }} <span class="caret"></span>
+                    {{ Auth::user()->role_id }} <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item text-success" href="{{ route('logout') }}"

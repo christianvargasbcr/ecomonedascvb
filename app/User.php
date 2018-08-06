@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'direccion', 'telefono', 'password',
+        'name', 'email', 'direccion', 'telefono', 'password', 'role_id'
     ];
 
     /**
@@ -27,13 +27,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function roles(){
-        return $this->belongsToMany(
-            'App\Role',
-            'role_user',
-            'user_id',
-            'role_id'
-        )->withTimestamps();
+    public function role(){
+        return $this->belongsTo('App\Role');
     }
 
     public function tieneAcceso(array $permissions){
@@ -45,7 +40,7 @@ class User extends Authenticatable
         return false;
     }
     public function tieneRol($nombre){
-        return $this->roles()->where('name',$nombre)->count()==1;
+        return $this->role()->where('name',$nombre)->count()==1;
     }
 
 }

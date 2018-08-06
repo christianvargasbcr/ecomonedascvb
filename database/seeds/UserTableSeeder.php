@@ -19,6 +19,7 @@ class UserTableSeeder extends Seeder
             'direccion' => 'Costa Rica',
             'telefono' => '88888888',
             'password' => Hash::make('123quesO!'),
+            'role_id' => 1,
         ]);
 
         $centro = \App\User::create([
@@ -27,6 +28,7 @@ class UserTableSeeder extends Seeder
             'direccion' => 'Costa Rica',
             'telefono' => '88888888',
             'password' => Hash::make('123quesO!'),
+            'role_id' => 2,
         ]);
 
         $cliente = \App\User::create([
@@ -35,6 +37,7 @@ class UserTableSeeder extends Seeder
             'direccion' => 'Costa Rica',
             'telefono' => '88888888',
             'password' => Hash::make('123quesO!'),
+            'role_id' => 3,
         ]);
     }
 }

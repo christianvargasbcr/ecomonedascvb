@@ -20,8 +20,10 @@ class CreateUsersTable extends Migration
             $table->string('direccion');
             $table->string('telefono');
             $table->string('password');
+            $table->integer('role_id')->unsigned();
             $table->rememberToken();
             $table->timestamps();
+            $table->foreign('role_id')->references('id')->on('roles');
         });
     }
 
