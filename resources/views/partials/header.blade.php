@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Ecomonedas</a>
+    <a class="navbar-brand" href="{{ route('principal') }}">Ecomonedas</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
             aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -10,13 +10,22 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Centros de Acopio</a>
             </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Materiales de Reciclaje</a>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Materiales de Reciclaje</a>
+            </li>
+            @auth()
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">Administrar</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-success" href="#">Centros de Acopio</a>
+                        <a class="dropdown-item text-success" href="#">Materiales Reciclables</a>
+                        <a class="dropdown-item text-success" href="#">Usuarios</a>
+                    </div>
                 </li>
+            @endauth
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('otros.acerca') }}">Acerca de</a>
             </li>
-
         </ul>
     </div>
     <ul class="navbar-nav ml-auto">

@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('principal');
-});
+})->name('principal');
 
 Route::get('acerca', function () {
     return view('otros.acerca-de');
