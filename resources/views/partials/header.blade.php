@@ -17,9 +17,10 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">Administrar</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item text-success" href="#">Centros de Acopio</a>
+                        <a class="dropdown-item text-success" href="{{ route('centro.index') }}">Centros de Acopio</a>
                         <a class="dropdown-item text-success" href="#">Materiales Reciclables</a>
-                        <a class="dropdown-item text-success" href="#">Usuarios</a>
+                        <a class="dropdown-item text-success" href="#">Cupones de Canje</a>
+                        <a class="dropdown-item text-success" href="#">Usuarios Registrados</a>
                     </div>
                 </li>
             @endauth
