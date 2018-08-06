@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('principal');
 });
 
+Route::get('acerca', function () {
+    return view('otros.acerca-de');
+})->name('otros.acerca');
+
 Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
 
     Route::get('',[
