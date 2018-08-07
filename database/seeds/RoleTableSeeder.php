@@ -14,16 +14,20 @@ class RoleTableSeeder extends Seeder
         $administrador = \App\Role::create([
             'name' => 'Administrador',
             'permissions' => json_encode([
+                'view-all-ca' => true,
                 'create-ca' => true,
                 'update-ca' => true,
                 'disable-ca' => true,
                 'delete-ca' => true,
+                'view-all-ma' => true,
                 'create-mat' => true,
                 'update-mat' => true,
                 'delete-mat' => true,
-                'create-u' => true,
-                'update-u' => true,
-                'delete-u' => true,
+                'view-all-usr' => true,
+                'create-usr' => true,
+                'update-usr' => true,
+                'delete-usr' => true,
+                'view-all-cup' => true,
                 'create-cup' => true,
                 'update-cup' => true,
                 'delete-cup' => true,
@@ -33,9 +37,7 @@ class RoleTableSeeder extends Seeder
         $centroAcopio = \App\Role::create([
             'name' => 'Centro Acopio',
             'permissions' => json_encode([
-                'create-can' => true,
-                'update-can' => true,
-                'delete-can' => true,
+
             ]),
         ]);
 

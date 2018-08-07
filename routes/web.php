@@ -26,7 +26,24 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
         'as'=>'admin.index'
     ]);
 
-    Route::group(['prefix'=>'centros'], function (){
+    Route::group(['prefix'=>'centro'], function (){
+
+        Route::get('',[
+            'uses'=>'CentroController@getCentroIndex',
+            'as'=>'centro.index'
+        ]);
+
+        Route::get('create',[
+            'uses'=>'CentroController@getCentroCreate',
+            'as'=>'centro.create',
+            'middleware'=>'can:create-ca'
+        ]);
+
+        Route::post('create',[
+            'uses'=>'CentroController@centroCreate',
+            'as'=>'centro.create',
+            'middleware'=>'can:create-ca'
+        ]);
 
     });
 
