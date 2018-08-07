@@ -10,15 +10,19 @@
             </div>
         </div>
     @endif
-    @can('create-ca')
+    <br>
+    <div class="row text-center">
+        <h2 class="text-success text-center">Manejar Centros de Acopio</h2>
+    </div>
+    @if( Auth::user()->role_id === 1 )
+        <br>
         <div class="row">
             <div class="col-md-12">
                 <a class="btn btn-success btn-lg" href="{{ route('centro.create') }}" role="button">Crear Nuevo</a>
             </div>
         </div>
-    @endcan
-    <h1>Centros de Acopio Index</h1>
-    <br>
+        <br>
+    @endif
     <table class="table table-hover">
         <thead>
             <tr class="table-success">
@@ -31,8 +35,8 @@
         <tbody>
         @foreach($centros as $centro)
             <tr class="table-light">
-                <th scope="row">{{ $centro->nombre }}</th>
-                <td>{{ $centro->provincia()->nombre }}</td>
+                <th scope="row">{{ $centro->name }}</th>
+                <td>{{ $centro->provincia->name }}</td>
                 <td>{{ $centro->telefono }}</td>
                 <td>
                     <a class="text-success font-weight-bold" href="#">Editar</a>

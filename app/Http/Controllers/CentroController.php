@@ -9,7 +9,7 @@ use App\Provincia;
 class CentroController extends Controller
 {
     public function getCentroIndex(){
-        $centros = Centro::all();
+        $centros = Centro::with('provincia')->get();
         return view('admin.centro.index', ['centros'=>$centros]);
     }
 
