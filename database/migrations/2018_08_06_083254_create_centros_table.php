@@ -19,6 +19,7 @@ class CreateCentrosTable extends Migration
             $table->integer('provincia_id')->unsigned();
             $table->string('direccion');
             $table->string('telefono');
+            $table->string('correo');
             $table->string('imagen');
             $table->timestamps();
             $table->foreign('provincia_id')->references('id')->on('provincias');
