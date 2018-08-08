@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Centros de Acopio</a>
+                <a class="nav-link" href="{{ route('centros-de-acopio') }}">Centros de Acopio</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Materiales de Reciclaje</a>

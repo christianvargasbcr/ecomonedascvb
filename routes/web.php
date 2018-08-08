@@ -15,6 +15,24 @@ Route::get('/', function () {
     return view('principal');
 })->name('principal');
 
+Route::group(['prefix'=>'publico'], function (){
+
+    Route::get('/centros-de-acopio',[
+        'uses'=>'PublicoController@getCentrosAcopio',
+        'as'=>'centros-de-acopio',
+    ]);
+    Route::get('/centros-de-acopio/detalle-centro/{id}',[
+        'uses'=>'PublicoController@getDetalleCentro',
+        'as'=>'detalle-centro',
+    ]);
+
+    Route::get('/materiales-de-reciclaje',[
+        'uses'=>'PublicoController@getMaterialesReciclaje',
+        'as'=>'materiales-de-reciclaje',
+    ]);
+
+});
+
 Route::get('acerca', function () {
     return view('otros.acerca-de');
 })->name('otros.acerca');
