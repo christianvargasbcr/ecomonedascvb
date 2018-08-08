@@ -36,7 +36,7 @@ class CentroTableSeeder extends Seeder
             'direccion' => 'Costado Sur del Parque Central de San Rafael de Heredia',
             'telefono' => '23333333',
             'correo' => 'centrosanrafael@cvb.com',
-            'imagen' => 'ecoimg/centros/1533703619ca_sd.jpg',
+            'imagen' => 'ecoimg/centros/1533703619ca_sr.jpg',
         ]);
 
         $centro = \App\Centro::create([
@@ -46,7 +46,7 @@ class CentroTableSeeder extends Seeder
                 ' derecha, sobre esa calle a los 200 metros',
             'telefono' => '24444444',
             'correo' => 'centropalmares@cvb.com',
-            'imagen' => 'ecoimg/centros/1533703620ca_sd.jpg',
+            'imagen' => 'ecoimg/centros/1533703620ca_palmares.jpg',
         ]);
 
     }
