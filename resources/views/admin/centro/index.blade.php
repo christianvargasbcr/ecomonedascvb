@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('titulo','Centros de Acopio')
+@section('titulo','Principal Centros de Acopio')
 
 @section('contenido')
     @if(Session::has('info'))
@@ -18,7 +18,8 @@
         <br>
         <div class="row">
             <div class="col-md-12">
-                <a class="btn btn-success btn-lg" href="{{ route('centro.create') }}" role="button">Crear Nuevo</a>
+                <a class="btn btn-success btn-lg" href="{{ route('centro.create') }}"
+                   role="button">Crear Nuevo</a>
             </div>
         </div>
         <br>
@@ -39,7 +40,8 @@
                 <td>{{ $centro->provincia->name }}</td>
                 <td>{{ $centro->telefono }}</td>
                 <td>
-                    <a class="text-success font-weight-bold" href="#">Editar</a>
+                    <a class="text-success font-weight-bold"
+                       href="{{ route('centro.edit',['ca'=>$centro->id]) }}">Editar</a>
                 </td>
             </tr>
         @endforeach

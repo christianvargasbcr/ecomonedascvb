@@ -36,13 +36,21 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
         Route::get('create',[
             'uses'=>'CentroController@getCentroCreate',
             'as'=>'centro.create',
-            'middleware'=>'can:create-ca'
         ]);
 
         Route::post('create',[
             'uses'=>'CentroController@centroCreate',
             'as'=>'centro.create',
-            'middleware'=>'can:create-ca'
+        ]);
+
+        Route::get('edit/{ca}',[
+            'uses'=>'CentroController@getCentroEdit',
+            'as'=>'centro.edit',
+        ]);
+
+        Route::post('edit/{ca}',[
+            'uses'=>'CentroController@centroEdit',
+            'as'=>'centro.edit',
         ]);
 
     });
