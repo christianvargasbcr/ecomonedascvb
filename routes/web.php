@@ -43,6 +43,16 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
             'as'=>'centro.create',
         ]);
 
+        Route::get('edit/{ca}',[
+            'uses'=>'CentroController@getCentroEdit',
+            'as'=>'centro.edit',
+        ]);
+
+        Route::post('edit/{ca}',[
+            'uses'=>'CentroController@centroEdit',
+            'as'=>'centro.edit',
+        ]);
+
     });
 
     Route::group(['prefix'=>'materiales'], function (){

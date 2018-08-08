@@ -35,20 +35,26 @@
                 <div class="form-group">
                     <label class="col-form-label" for="telefono">Teléfono</label>
                     <input type="text" class="form-control" placeholder="########" id="telefono" name="telefono">
-                    <small id="telefonoHelp" class="form-text text-success">Ingrese el teléfono de contacto sin guiones o espacios</small>
+                    <small id="telefonoHelp" class="form-text text-success">
+                        Ingrese el teléfono de contacto sin guiones o espacios
+                    </small>
                 </div>
 
                 <div class="form-group">
                     <label class="col-form-label" for="email">Correo</label>
                     <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
                            placeholder="Ingrese el correo de contacto" name="email">
-                    <small id="emailHelp" class="form-text text-success">La dirección de contacto sera mostrada a los clientes</small>
+                    <small id="emailHelp" class="form-text text-success">
+                        El correo de contacto sera mostrado a los clientes
+                    </small>
                 </div>
 
                 <div class="form-group">
                     <label class="col-form-label" for="imagen">Imagen</label>
                     <input type="file" name="imagen" class="form-control-file " id="imagen" aria-describedby="fileHelp">
-                    <small id="imagenHelp" class="form-text text-success">Seleccione una imagen</small>
+                    <small id="imagenHelp" class="form-text text-success">
+                        Seleccione una imagen
+                    </small>
                 </div>
 
                 @csrf
