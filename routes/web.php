@@ -36,13 +36,11 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
         Route::get('create',[
             'uses'=>'CentroController@getCentroCreate',
             'as'=>'centro.create',
-            'middleware'=>'can:create-ca'
         ]);
 
         Route::post('create',[
             'uses'=>'CentroController@centroCreate',
             'as'=>'centro.create',
-            'middleware'=>'can:create-ca'
         ]);
 
     });

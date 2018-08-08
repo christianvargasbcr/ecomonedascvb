@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('titulo','Centros de Acopio')
+@section('titulo','Principal Centros de Acopio')
 
 @section('contenido')
     @if(Session::has('info'))
