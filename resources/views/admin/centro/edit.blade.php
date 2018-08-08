@@ -63,7 +63,11 @@
 
                 <input type='hidden' name="id" value="{{ $ca->id}}">
                 @csrf
-                <button type="submit" class="btn btn-success">Guardar</button>
+                <div>
+                    <button type="submit" class="btn btn-success" style="width: 150px">Guardar</button>
+                    <a role="button" href="{{ route('centro.index') }}" class="btn btn-info"
+                       style="width: 150px">Cancelar</a>
+                </div>
             </fieldset>
         </form>
     </div>

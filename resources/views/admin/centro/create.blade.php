@@ -58,7 +58,12 @@
                 </div>
 
                 @csrf
-                <button type="submit" class="btn btn-success">Crear</button>
+                <div>
+                    <button type="submit" class="btn btn-success" style="width: 150px">Crear</button>
+                    <a role="button" href="{{ route('centro.index') }}" class="btn btn-info"
+                       style="width: 150px">Cancelar</a>
+                </div>
+
             </fieldset>
         </form>
     </div>
