@@ -18,8 +18,8 @@
         <br>
         <div class="row">
             <div class="col-md-12">
-                <a class="btn btn-success btn-lg" href="{{ route('centro.create') }}"
-                   role="button">Crear Nuevo</a>
+                <a class="btn btn-success" href="{{ route('centro.create') }}"
+                   role="button" style="width: 150px">Crear Nuevo</a>
             </div>
         </div>
         <br>
@@ -47,4 +47,7 @@
         @endforeach
         </tbody>
     </table>
+    <br>
+    <a role="button" href="{{ route('admin.index') }}" class="btn btn-info"
+       style="width: 150px">Volver</a>
 @endsection

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{{ route('principal') }}">Ecomonedas</a>
+    <a class="navbar-brand" href="{{ route('principal') }}"><b>Ecomonedas</b></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
             aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -8,14 +8,16 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('centros-de-acopio') }}">Centros de Acopio</a>
+                <a class="nav-link" href="{{ route('centros-de-acopio') }}"><b>Centros de Acopio</b></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Materiales de Reciclaje</a>
+                <a class="nav-link" href="#"><b>Materiales de Reciclaje</b></a>
             </li>
             @auth()
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">Administrar</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                        <b>Administrar</b>
+                    </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item text-success" href="{{ route('centro.index') }}">Centros de Acopio</a>
                         <a class="dropdown-item text-success" href="#">Materiales Reciclables</a>
@@ -25,15 +27,21 @@
                 </li>
             @endauth
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('otros.acerca') }}">Acerca de</a>
+                <a class="nav-link" href="{{ route('otros.acerca') }}"><b>Acerca de</b></a>
             </li>
         </ul>
     </div>
     <ul class="navbar-nav ml-auto">
         <!-- Authentication Links -->
         @guest
-            <li class="nav-item active"><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-            <li class="nav-item active"><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+            <li class="nav-item">
+                <a class="btn btn-outline-light" href="{{ route('login') }}"
+                   role="button" style="width: 150px; margin-right: 10px"><b>Ingresar</b></a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-outline-light" href="{{ route('register') }}"
+                   role="button" style="width: 150px"><b>Registrarse</b></a>
+            </li>
         @else
             <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
