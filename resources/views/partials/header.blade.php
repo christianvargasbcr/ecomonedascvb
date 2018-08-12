@@ -11,7 +11,7 @@
                 <a class="nav-link" href="{{ route('centros-de-acopio') }}"><b>Centros de Acopio</b></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><b>Materiales de Reciclaje</b></a>
+                <a class="nav-link" href="{{ route('materiales-de-reciclaje') }}"><b>Materiales de Reciclaje</b></a>
             </li>
             @auth()
                 <li class="nav-item dropdown">

@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Centro;
+use App\Material;
 use App\Provincia;
 use Illuminate\Http\Request;
 
 class PublicoController extends Controller
 {
     public function getCentrosAcopio(){
-        $centros = Centro::with('provincia')->get();
+        $centros = Centro::with('provincia')->paginate(3);
         return view('publico.centros-de-acopio',['centros'=>$centros]);
     }
 
@@ -19,6 +20,7 @@ class PublicoController extends Controller
     }
 
     public function getMaterialesReciclaje(){
-        return null;
+        $materiales = Material::paginate(6);
+        return view('publico.materiales-de-reciclaje',['materiales'=>$materiales]);
     }
 }
