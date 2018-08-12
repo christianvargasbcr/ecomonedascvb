@@ -20,7 +20,7 @@
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item text-success" href="{{ route('centro.index') }}">Centros de Acopio</a>
-                        <a class="dropdown-item text-success" href="#">Materiales Reciclables</a>
+                        <a class="dropdown-item text-success" href="{{ route('materiales.index') }}">Materiales Reciclables</a>
                         <a class="dropdown-item text-success" href="#">Cupones de Canje</a>
                         <a class="dropdown-item text-success" href="#">Usuarios Registrados</a>
                     </div>
