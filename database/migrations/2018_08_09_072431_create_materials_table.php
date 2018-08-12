@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCentrosTable extends Migration
+class CreateMaterialsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateCentrosTable extends Migration
      */
     public function up()
     {
-        Schema::create('centros', function (Blueprint $table) {
+        Schema::create('materials', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
-            $table->integer('provincia_id')->unsigned();
-            $table->string('direccion');
-            $table->string('telefono')->unique();
-            $table->string('correo')->unique();
+            $table->string('nombre')->unique();
+            $table->double('precio');
+            $table->string('color')->unique();
             $table->string('imagen');
             $table->timestamps();
-            $table->foreign('provincia_id')->references('id')->on('provincias');
         });
     }
 
@@ -33,6 +30,6 @@ class CreateCentrosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('centro');
+        Schema::dropIfExists('materials');
     }
 }

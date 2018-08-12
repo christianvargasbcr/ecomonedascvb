@@ -75,6 +75,31 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
 
     Route::group(['prefix'=>'materiales'], function (){
 
+        Route::get('',[
+            'uses'=>'MaterialController@getMaterialIndex',
+            'as'=>'materiales.index'
+        ]);
+
+        Route::get('create',[
+            'uses'=>'MaterialController@getMaterialCreate',
+            'as'=>'materiales.create',
+        ]);
+
+        Route::post('create',[
+            'uses'=>'MaterialController@materialCreate',
+            'as'=>'materiales.create',
+        ]);
+
+        Route::get('edit/{mat}',[
+            'uses'=>'MaterialController@getMaterialEdit',
+            'as'=>'materiales.edit',
+        ]);
+
+        Route::post('edit/{mat}',[
+            'uses'=>'MaterialController@materialEdit',
+            'as'=>'materiales.edit',
+        ]);
+
     });
 
     Route::group(['prefix'=>'usuarios'], function (){

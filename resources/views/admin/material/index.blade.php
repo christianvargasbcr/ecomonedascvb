@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('titulo','Principal Centros de Acopio')
+@section('titulo','Principal Materiales de Reciclaje')
 
 @section('contenido')
     @if(Session::has('info'))
@@ -12,36 +12,36 @@
     @endif
     <br>
     <div class="row text-center">
-        <h2 class="text-success text-center">Manejar Centros de Acopio</h2>
+        <h2 class="text-success text-center">Manejar Materiales de Reciclaje</h2>
     </div>
-    @if( Auth::user()->role_id === 1 )
-        <br>
+    <br>
         <div class="row">
             <div class="col-md-12">
-                <a class="btn btn-success" href="{{ route('centro.create') }}"
+                <a class="btn btn-success" href="{{ route('materiales.create') }}"
                    role="button" style="width: 150px">Crear Nuevo</a>
             </div>
         </div>
-        <br>
-    @endif
+    <br>
     <table class="table table-hover">
         <thead>
             <tr class="table-success">
                 <th scope="col">Nombre</th>
-                <th scope="col">Provincia</th>
-                <th scope="col">Teléfono</th>
-                <th scope="col">Editar</th>
+                <th class="text-center" scope="col">Precio</th>
+                <th class="text-center" scope="col">Color</th>
+                <th class="text-center" scope="col">Editar</th>
             </tr>
         </thead>
         <tbody>
-        @foreach($centros as $centro)
+        @foreach($materiales as $mat)
             <tr class="table-light">
-                <th scope="row">{{ $centro->name }}</th>
-                <td>{{ $centro->provincia->name }}</td>
-                <td>{{ $centro->telefono }}</td>
-                <td>
+                <th class="text-success" scope="row">{{ $mat->nombre }}</th>
+                <td class="text-success text-center">{{ $mat->precio }}</td>
+                <td class="text-center">
+                    <i class="fa fa-circle fa-lg" style="color: {{ $mat->color }}"></i>
+                </td>
+                <td class="text-center">
                     <a class="text-success font-weight-bold"
-                       href="{{ route('centro.edit',['ca'=>$centro->id]) }}">Editar</a>
+                       href="{{ route('materiales.edit',['mat'=>$mat->id]) }}">Editar</a>
                 </td>
             </tr>
         @endforeach
