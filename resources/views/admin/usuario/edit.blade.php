@@ -14,31 +14,29 @@
 
                 <div class="form-group">
                     <label class="col-form-label" for="name">Nombre</label>
-                    <input type="text" class="form-control" placeholder="Nombre" id="name" name="name">
+                    <input type="text" class="form-control" placeholder="Nombre" id="name"
+                           name="name" value="{{ $usr->name }}">
                 </div>
 
                 <div class="form-group">
                     <label class="col-form-label" for="email">Correo</label>
                     <input type="email" class="form-control" id="email"
-                           placeholder="Dirección de correo" name="email">
+                           placeholder="Dirección de correo" name="email" value="{{ $usr->email }}">
                 </div>
 
                 <div class="form-group">
                     <label class="col-form-label" for="direccion">Dirección</label>
-                    <input type="text" class="form-control" placeholder="Dirección" id="direccion" name="direccion">
+                    <input type="text" class="form-control" placeholder="Dirección" id="direccion"
+                           name="direccion" value="{{ $usr->direccion }}">
                 </div>
 
                 <div class="form-group">
                     <label class="col-form-label" for="telefono">Teléfono</label>
-                    <input type="text" class="form-control" placeholder="########" id="telefono" name="telefono">
+                    <input type="text" class="form-control" placeholder="########" id="telefono"
+                           name="telefono" value="{{ $usr->telefono }}">
                     <small id="telefonoHelp" class="form-text text-success">
                         Ingrese el teléfono sin guiones o espacios
                     </small>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-form-label" for="Password Temporal">Password</label>
-                    <input type="password" class="form-control" id="password" name="password">
                 </div>
 
                 <div class="form-group" id="select_centro" style="display: none">
@@ -55,7 +53,7 @@
                 <input type='hidden' name="id" value="{{ $usr->id}}">
                 @csrf
                 <div>
-                    <button type="submit" class="btn btn-success" style="width: 150px">Crear</button>
+                    <button type="submit" class="btn btn-success" style="width: 150px">Guardar</button>
                     <a role="button" href="{{ route('usuarios.index') }}" class="btn btn-info"
                        style="width: 150px">Cancelar</a>
                 </div>
