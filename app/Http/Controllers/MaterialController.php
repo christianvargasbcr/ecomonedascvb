@@ -3,14 +3,60 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Material;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class MaterialController extends Controller
 {
     public function getMaterialIndex(){
-        return view('admin.material.index');
+        if (Auth::user()->role_id == 1){
+            $materiales = Material::all();
+            return view('admin.material.index', ['materiales'=>$materiales]);
+        }
+        else{
+            return redirect()->route('principal');
+        }
     }
 
     public function getMaterialCreate(){
-        return view('admin.material.create');
+        if (Auth::user()->role_id == 1){
+            return view('admin.material.create');
+        }
+        else{
+            return redirect()->route('principal');
+        }
+    }
+
+    public function materialCreate(Request $request){
+        if (Auth::user()->role_id == 1){
+            $this->validate($request, [
+                'nombre' => 'required|unique:materials,nombre|string|max:100',
+                'precio' => 'required|min:1',
+                'color' => 'required|unique:materials,color',
+                'imagen' => 'required|image',
+            ]);
+
+            $imagen = $request->file('imagen');
+            $nombreImagen = time().$request->file('imagen')->getClientOriginalName();
+            $ruta = 'ecoimg/materiales/'.$nombreImagen;
+            // Subir imagen a S3 bucket de AWS
+            Storage::disk('s3')->put($ruta, file_get_contents($imagen),'public');
+
+            $material = new Material([
+                'nombre' => $request->input('nombre'),
+                'precio' => $request->input('precio'),
+                'color' => $request->input('color'),
+                'imagen' => $ruta,
+            ]);
+            $material->save();
+
+            return redirect()
+                ->route('materiales.index')
+                ->with('info', 'Material: '.$request->input('nombre').' agregado');
+        }
+        else{
+            return redirect()->route('principal');
+        }
     }
 }

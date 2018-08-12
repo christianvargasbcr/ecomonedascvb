@@ -6,7 +6,7 @@
     @include('partials.errors')
     <br>
     <div class="container text-success" style="display: block;margin-left: auto;margin-right: auto; width: 60%">
-        <form action="{{ route('centro.create') }}" method="post" enctype="multipart/form-data" >
+        <form action="{{ route('materiales.create') }}" method="post" enctype="multipart/form-data" >
             <fieldset>
 
                 <legend class="text-success">Crear Material de Reciclaje</legend>
@@ -18,7 +18,7 @@
 
                 <div class="form-group">
                     <label class="col-form-label" for="precio">Precio</label>
-                    <input type="text" class="form-control" placeholder="Precio" id="precio" name="precio">
+                    <input type="number" class="form-control" placeholder="Precio" id="precio" name="precio">
                 </div>
 
                 <div class="form-group">

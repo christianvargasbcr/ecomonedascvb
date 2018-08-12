@@ -85,12 +85,12 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
             'as'=>'materiales.create',
         ]);
 
-        /*Route::post('create',[
-            'uses'=>'',
-            'as'=>'',
+        Route::post('create',[
+            'uses'=>'MaterialController@materialCreate',
+            'as'=>'materiales.create',
         ]);
 
-        Route::get('edit/{ca}',[
+        /*Route::get('edit/{ca}',[
             'uses'=>'',
             'as'=>'',
         ]);

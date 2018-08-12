@@ -34,11 +34,11 @@ class CentroController extends Controller
     public function centroCreate(Request $request){
         if (Auth::user()->role_id == 1){
             $this->validate($request, [
-                'name' => 'required|string|max:100',
+                'name' => 'required|unique:centros,name|string|max:100',
                 'provincia' => 'required|not_in:0',
                 'direccion' => 'required|string|max:125',
-                'telefono' => 'required|string|max:8',
-                'email' => 'required|string|email|max:100',
+                'telefono' => 'required|unique:centros,telefono|string|max:8',
+                'email' => 'required|unique:centros,correo|string|email|max:100',
                 'imagen' => 'required|image',
             ]);
 

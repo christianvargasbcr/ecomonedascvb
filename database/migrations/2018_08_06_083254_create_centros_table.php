@@ -15,11 +15,11 @@ class CreateCentrosTable extends Migration
     {
         Schema::create('centros', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->integer('provincia_id')->unsigned();
             $table->string('direccion');
-            $table->string('telefono');
-            $table->string('correo');
+            $table->string('telefono')->unique();
+            $table->string('correo')->unique();
             $table->string('imagen');
             $table->timestamps();
             $table->foreign('provincia_id')->references('id')->on('provincias');
