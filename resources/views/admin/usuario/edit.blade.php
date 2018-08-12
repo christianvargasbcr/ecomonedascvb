@@ -39,7 +39,7 @@
                     </small>
                 </div>
 
-                <div class="form-group" id="select_centro" style="display: none">
+                <div class="form-group">
                     <label class="col-form-label" for="centro">Centro De Acopio</label>
                     <select class="form-control" id="centro" name="centro">
                         <option value="0">Seleccione el Centro</option>
@@ -61,20 +61,4 @@
             </fieldset>
         </form>
     </div>
-
-    <script>
-        $(document).ready(function(){
-            $('#role').on('change', function() {
-                if ( this.value == '2')
-                {
-                    $("#select_centro").show();
-                }
-                else
-                {
-                    $("#select_centro").hide();
-                }
-            });
-        });
-    </script>
-
 @endsection
