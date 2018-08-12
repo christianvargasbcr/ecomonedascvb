@@ -30,7 +30,7 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Provincia</th>
                 <th scope="col">Teléfono</th>
-                <th scope="col">Editar</th>
+                <th scope="col" class="text-center">Editar</th>
             </tr>
         </thead>
         <tbody>
@@ -39,7 +39,7 @@
                 <th scope="row">{{ $centro->name }}</th>
                 <td>{{ $centro->provincia->name }}</td>
                 <td>{{ $centro->telefono }}</td>
-                <td>
+                <td class="text-center">
                     <a class="text-success font-weight-bold"
                        href="{{ route('centro.edit',['ca'=>$centro->id]) }}">Editar</a>
                 </td>

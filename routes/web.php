@@ -104,6 +104,35 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
 
     Route::group(['prefix'=>'usuarios'], function (){
 
+        Route::get('listado-clientes',[
+            'uses'=>'UsuarioController@getListadoClientes',
+            'as'=>'usuarios.listado'
+        ]);
+
+        Route::get('',[
+            'uses'=>'UsuarioController@getUsuarioIndex',
+            'as'=>'usuarios.index'
+        ]);
+
+        Route::get('create',[
+            'uses'=>'UsuarioController@getUsuarioCreate',
+            'as'=>'usuarios.create',
+        ]);
+
+        Route::post('create',[
+            'uses'=>'UsuarioController@usuarioCreate',
+            'as'=>'usuarios.create',
+        ]);
+
+        Route::get('edit/{usr}',[
+            'uses'=>'UsuarioController@getUsuarioEdit',
+            'as'=>'usuarios.edit',
+        ]);
+
+        Route::post('edit/{usr}',[
+            'uses'=>'UsuarioController@usuarioEdit',
+            'as'=>'usuarios.edit',
+        ]);
     });
 
     Route::group(['prefix'=>'cupones'], function (){
