@@ -90,15 +90,15 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
             'as'=>'materiales.create',
         ]);
 
-        /*Route::get('edit/{ca}',[
-            'uses'=>'',
-            'as'=>'',
+        Route::get('edit/{mat}',[
+            'uses'=>'MaterialController@getMaterialEdit',
+            'as'=>'materiales.edit',
         ]);
 
-        Route::post('edit/{ca}',[
-            'uses'=>'',
-            'as'=>'',
-        ]);*/
+        Route::post('edit/{mat}',[
+            'uses'=>'MaterialController@materialEdit',
+            'as'=>'materiales.edit',
+        ]);
 
     });
 

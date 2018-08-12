@@ -9,7 +9,7 @@
         <form action="{{ route('centro.edit',['ca'=>$ca->id]) }}" method="post" enctype="multipart/form-data" >
             <fieldset>
 
-                <legend class="text-success">Editar Centro de Acopio</legend>
+                <legend class="text-success">Modificar Centro de Acopio</legend>
 
                 <div class="form-group">
                     <label class="col-form-label" for="name">Nombre</label>

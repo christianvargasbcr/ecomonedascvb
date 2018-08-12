@@ -28,6 +28,7 @@
                 <th scope="col">Nombre</th>
                 <th class="text-center" scope="col">Precio</th>
                 <th class="text-center" scope="col">Color</th>
+                <th class="text-center" scope="col">Editar</th>
             </tr>
         </thead>
         <tbody>
@@ -38,10 +39,10 @@
                 <td class="text-center">
                     <i class="fa fa-circle fa-lg" style="color: {{ $mat->color }}"></i>
                 </td>
-                {{--<td>
+                <td class="text-center">
                     <a class="text-success font-weight-bold"
                        href="{{ route('materiales.edit',['mat'=>$mat->id]) }}">Editar</a>
-                </td>--}}
+                </td>
             </tr>
         @endforeach
         </tbody>
