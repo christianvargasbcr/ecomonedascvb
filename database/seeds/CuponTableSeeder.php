@@ -16,7 +16,7 @@ class CuponTableSeeder extends Seeder
             'descripcion' => 'Kingston Data Traveler, 64GB, velocidad 3.0',
             'precio' => '150',
             'imagen' => 'ecoimg/cupones/llave01.jpg',
-            'id_categoria' => '1',
+            'categoria_id' => '1',
         ]);
 
         $cupon = \App\Cupon::create([
@@ -24,7 +24,7 @@ class CuponTableSeeder extends Seeder
             'descripcion' => 'POWERADD Slim2 de 5000mAh',
             'precio' => '500',
             'imagen' => 'ecoimg/cupones/bateria01.jpg',
-            'id_categoria' => '1',
+            'categoria_id' => '1',
         ]);
 
         $cupon = \App\Cupon::create([
@@ -32,7 +32,7 @@ class CuponTableSeeder extends Seeder
             'descripcion' => 'Toshiba 1TB, USB 3.0',
             'precio' => '750',
             'imagen' => 'ecoimg/cupones/disco01.jpg',
-            'id_categoria' => '1',
+            'categoria_id' => '1',
         ]);
 
         $cupon = \App\Cupon::create([
@@ -40,7 +40,7 @@ class CuponTableSeeder extends Seeder
             'descripcion' => 'Queso, 150g',
             'precio' => '25',
             'imagen' => 'ecoimg/cupones/papiolas01.jpg',
-            'id_categoria' => '2',
+            'categoria_id' => '2',
         ]);
 
         $cupon = \App\Cupon::create([
@@ -48,7 +48,7 @@ class CuponTableSeeder extends Seeder
             'descripcion' => 'Riviana Pozuelo, 12 paquetes individuales',
             'precio' => '40',
             'imagen' => 'ecoimg/cupones/chicky01.jpg',
-            'id_categoria' => '2',
+            'categoria_id' => '2',
         ]);
 
         $cupon = \App\Cupon::create([
@@ -56,7 +56,7 @@ class CuponTableSeeder extends Seeder
             'descripcion' => 'Oreo, presentación grande',
             'precio' => '30',
             'imagen' => 'ecoimg/cupones/milkaoreo01.jpg',
-            'id_categoria' => '2',
+            'categoria_id' => '2',
         ]);
 
         $cupon = \App\Cupon::create([
@@ -64,7 +64,7 @@ class CuponTableSeeder extends Seeder
             'descripcion' => 'Hortensias y Flores Blancas, 1.5kg',
             'precio' => '40',
             'imagen' => 'ecoimg/cupones/rinso01.png',
-            'id_categoria' => '3',
+            'categoria_id' => '3',
         ]);
 
         $cupon = \App\Cupon::create([
@@ -72,7 +72,7 @@ class CuponTableSeeder extends Seeder
             'descripcion' => 'Original, 3.750L',
             'precio' => '40',
             'imagen' => 'ecoimg/cupones/cloro01.jpg',
-            'id_categoria' => '3',
+            'categoria_id' => '3',
         ]);
 
         $cupon = \App\Cupon::create([
@@ -80,7 +80,7 @@ class CuponTableSeeder extends Seeder
             'descripcion' => 'Fragancia de Pino, 3.750L',
             'precio' => '35',
             'imagen' => 'ecoimg/cupones/sanipine01.jpg',
-            'id_categoria' => '3',
+            'categoria_id' => '3',
         ]);
 
         $cupon = \App\Cupon::create([
@@ -88,7 +88,7 @@ class CuponTableSeeder extends Seeder
             'descripcion' => 'Stanley, Cubos cortos, 12 a 30 mm, 23 Piezas',
             'precio' => '400',
             'imagen' => 'ecoimg/cupones/cubos01.jpg',
-            'id_categoria' => '4',
+            'categoria_id' => '4',
         ]);
 
         $cupon = \App\Cupon::create([
@@ -96,7 +96,7 @@ class CuponTableSeeder extends Seeder
             'descripcion' => 'Stanley, 20 Piezas, mango regular',
             'precio' => '375',
             'imagen' => 'ecoimg/cupones/destornilladores01.jpg',
-            'id_categoria' => '4',
+            'categoria_id' => '4',
         ]);
 
         $cupon = \App\Cupon::create([
@@ -104,7 +104,7 @@ class CuponTableSeeder extends Seeder
             'descripcion' => 'Truper, Broches metálicos, Medida: 51x26.6x25cm',
             'precio' => '250',
             'imagen' => 'ecoimg/cupones/cajaherra01.jpg',
-            'id_categoria' => '4',
+            'categoria_id' => '4',
         ]);
 
         $cupon = \App\Cupon::create([
@@ -112,7 +112,7 @@ class CuponTableSeeder extends Seeder
             'descripcion' => 'Cinemar, entrada doble, **no estrenos**',
             'precio' => '30',
             'imagen' => 'ecoimg/cupones/entradas01.jpg',
-            'id_categoria' => '5',
+            'categoria_id' => '5',
         ]);
 
         $cupon = \App\Cupon::create([
@@ -120,15 +120,15 @@ class CuponTableSeeder extends Seeder
             'descripcion' => 'Combo Mediano, **Aplica solo en restaurantes**',
             'precio' => '40',
             'imagen' => 'ecoimg/cupones/bigmac01.jpg',
-            'id_categoria' => '5',
+            'categoria_id' => '5',
         ]);
 
         $cupon = \App\Cupon::create([
-            'nombre' => '',
-            'descripcion' => '',
-            'precio' => '',
-            'imagen' => 'ecoimg/cupones/',
-            'id_categoria' => '5',
+            'nombre' => 'Pase Especial Doble',
+            'descripcion' => 'Parque de diversiones, **no feriados**',
+            'precio' => '80',
+            'imagen' => 'ecoimg/cupones/pase01.png',
+            'categoria_id' => '5',
         ]);
 
     }

@@ -19,7 +19,7 @@ class CreateCuponsTable extends Migration
             $table->string('descripcion');
             $table->double('precio');
             $table->string('imagen');
-            $table->integer('categoria_id');
+            $table->integer('categoria_id')->unsigned();
             $table->timestamps();
             $table->foreign('categoria_id')->references('id')->on('categorias');
         });

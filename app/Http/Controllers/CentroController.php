@@ -13,7 +13,9 @@ class CentroController extends Controller
 
     public function getCentroIndex(){
         if (Auth::user()->role_id == 1){
-            $centros = Centro::with('provincia')->get();
+            $centros = Centro::with('provincia')
+                ->orderBy('name','asc')
+                ->paginate(5);
             return view('admin.centro.index', ['centros'=>$centros]);
         }
         else{

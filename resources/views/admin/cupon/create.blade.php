@@ -1,20 +1,26 @@
 @extends('layouts.master')
 
-@section('titulo','Crear Material de Reciclaje')
+@section('titulo','Crear Centro de Acopio')
 
 @section('contenido')
     @include('partials.errors')
     <br>
     <div class="container text-success" style="display: block;margin-left: auto;margin-right: auto; width: 60%">
-        <form action="{{ route('materiales.create') }}" method="post" enctype="multipart/form-data" >
+        <form action="{{ route('cupones.create') }}" method="post" enctype="multipart/form-data" >
             <fieldset>
 
-                <legend class="text-success">Crear Material de Reciclaje</legend>
+                <legend class="text-success">Crear Cupón de Canje</legend>
 
                 <div class="form-group">
                     <label class="col-form-label" for="nombre">Nombre</label>
                     <input type="text" class="form-control" placeholder="Ingrese el Nombre"
                            id="nombre" name="nombre">
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label" for="descripcion">Descripción</label>
+                    <textarea class="form-control" id="descripcion" rows="3"
+                              name="descripcion"></textarea>
                 </div>
 
                 <div class="form-group">
@@ -24,13 +30,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-form-label" for="color">Color</label>
-                    <div id="cp2" class="input-group colorpicker colorpicker-component col-6">
-                        <input type="text" name="color" id="color" value="#32b478" class="form-control"/>
-                        <label for="color" class="input-group-addon display-block">
-                            <i style="height: 100%; width: 40px; margin-left: 5px"></i>
-                        </label>
-                    </div>
+                    <label class="col-form-label" for="categoria">Categoría</label>
+                    <select class="form-control" id="categoria" name="categoria">
+                        <option value="0" class="text-muted">Seleccione una categoría</option>
+                        @foreach($cats as $cat)
+                            <option value="{{ $cat->id }}">{{ $cat->nombre }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -44,14 +50,12 @@
                 @csrf
                 <div>
                     <button type="submit" class="btn btn-success" style="width: 150px">Crear</button>
-                    <a role="button" href="{{ route('materiales.index') }}" class="btn btn-info"
+                    <a role="button" href="{{ route('cupones.index') }}" class="btn btn-info"
                        style="width: 150px">Cancelar</a>
                 </div>
 
             </fieldset>
         </form>
     </div>
-    <script type="text/javascript">
-        $('.colorpicker').colorpicker();
-    </script>
+
 @endsection

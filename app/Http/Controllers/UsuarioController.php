@@ -14,7 +14,10 @@ class UsuarioController extends Controller
 
     public function getListadoClientes(){
         if (Auth::user()->role_id == 1){
-            $users = User::with('centro')->where('role_id','=',3)->paginate(5);
+            $users = User::with('centro')
+                ->where('role_id','=',3)
+                ->orderBy('name','asc')
+                ->paginate(5);
             return view('admin.usuario.listado', ['users'=>$users]);
         }
         else{

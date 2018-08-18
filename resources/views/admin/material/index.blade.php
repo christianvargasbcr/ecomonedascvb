@@ -34,8 +34,8 @@
         <tbody>
         @foreach($materiales as $mat)
             <tr class="table-light">
-                <th class="text-success" scope="row">{{ $mat->nombre }}</th>
-                <td class="text-success text-center">{{ $mat->precio }}</td>
+                <th class="" scope="row">{{ $mat->nombre }}</th>
+                <td class="text-center">{{ $mat->precio }}</td>
                 <td class="text-center">
                     <i class="fa fa-circle fa-lg" style="color: {{ $mat->color }}"></i>
                 </td>
@@ -47,7 +47,7 @@
         @endforeach
         </tbody>
     </table>
-    <br>
+    {{ $materiales->links() }}
     <a role="button" href="{{ route('admin.index') }}" class="btn btn-info"
        style="width: 150px">Volver</a>
 @endsection

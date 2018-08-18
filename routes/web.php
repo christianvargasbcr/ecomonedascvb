@@ -11,16 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('principal');
-})->name('principal');
 
-Route::group(['prefix'=>'publico'], function (){
+
+Route::group(['prefix'=>''], function (){
+
+    Route::get('/',[
+        'uses'=>'PublicoController@getPrincipal',
+        'as'=>'principal',
+    ]);
 
     Route::get('/centros-de-acopio',[
         'uses'=>'PublicoController@getCentrosAcopio',
         'as'=>'centros-de-acopio',
     ]);
+
     Route::get('/centros-de-acopio/detalle-centro/{id}',[
         'uses'=>'PublicoController@getDetalleCentro',
         'as'=>'detalle-centro',
@@ -29,6 +33,16 @@ Route::group(['prefix'=>'publico'], function (){
     Route::get('/materiales-de-reciclaje',[
         'uses'=>'PublicoController@getMaterialesReciclaje',
         'as'=>'materiales-de-reciclaje',
+    ]);
+
+    Route::get('/cupones-disponibles',[
+        'uses'=>'PublicoController@getCuponesDisponibles',
+        'as'=>'cupones-disponibles',
+    ]);
+
+    Route::get('/cupones-categoria/{cat}',[
+        'uses'=>'PublicoController@getCuponesFiltrados',
+        'as'=>'cupones-categoria',
     ]);
 
 });
@@ -137,6 +151,35 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
 
     Route::group(['prefix'=>'cupones'], function (){
 
+        Route::get('',[
+            'uses'=>'CuponController@getCuponIndex',
+            'as'=>'cupones.index'
+        ]);
+
+        Route::get('categoria/{cat}',[
+            'uses'=>'CuponController@getCuponCategoria',
+            'as'=>'cupones.categoria'
+        ]);
+
+        Route::get('create',[
+            'uses'=>'CuponController@getCuponCreate',
+            'as'=>'cupones.create',
+        ]);
+
+        Route::post('create',[
+            'uses'=>'CuponController@cuponCreate',
+            'as'=>'cupones.create',
+        ]);
+
+        Route::get('edit/{cup}',[
+            'uses'=>'CuponController@getCuponEdit',
+            'as'=>'cupones.edit',
+        ]);
+
+        Route::post('edit/{cup}',[
+            'uses'=>'CuponController@cuponEdit',
+            'as'=>'cupones.edit',
+        ]);
     });
 
 });

@@ -47,7 +47,7 @@
         @endforeach
         </tbody>
     </table>
-    <br>
+    {{ $centros->links() }}
     <a role="button" href="{{ route('admin.index') }}" class="btn btn-info"
        style="width: 150px">Volver</a>
 @endsection

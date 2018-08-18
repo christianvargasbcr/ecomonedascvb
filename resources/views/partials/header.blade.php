@@ -15,37 +15,12 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
             @guest
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('centros-de-acopio') }}"><b>Centros de Acopio</b></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('materiales-de-reciclaje') }}"><b>Materiales de Reciclaje</b></a>
-                </li>
+                @include('partials.linkspublicos')
             @else
                 @auth()
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                            <b>Administrar</b>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item text-success" href="{{ route('centro.index') }}">Centros de Acopio</a>
-                            <a class="dropdown-item text-success"
-                               href="{{ route('materiales.index') }}">Materiales Reciclables</a>
-                            <a class="dropdown-item text-success"
-                               href="#">Cupones de Canje</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('usuarios.index') }}"><b>Gestión Administradores</b></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('usuarios.listado') }}"><b>Listado Clientes</b></a>
-                    </li>
+                    @include('partials.adminheader')
                 @endauth
             @endguest
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('otros.acerca') }}"><b>Acerca de</b></a>
-            </li>
         </ul>
     </div>
     <ul class="navbar-nav ml-auto">
