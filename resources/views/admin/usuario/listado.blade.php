@@ -42,7 +42,7 @@
         @endforeach
         </tbody>
     </table>
-    <br>
+    {{ $users->links() }}
     <a role="button" href="{{ route('admin.index') }}" class="btn btn-info"
        style="width: 150px">Volver</a>
 

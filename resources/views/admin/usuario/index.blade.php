@@ -28,7 +28,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Correo</th>
             <th scope="col">Teléfono</th>
-            <th scope="col">Rol</th>
+            <th scope="col">Centro Acopio</th>
             <th scope="col" class="text-center">Editar</th>
         </tr>
         </thead>
@@ -38,7 +38,9 @@
                 <th scope="row">{{ $usr->name }}</th>
                 <td>{{ $usr->email }}</td>
                 <td>{{ $usr->telefono }}</td>
-                <td>{{ $usr->role->name }}</td>
+                @foreach($usr->centro as $c)
+                    <td>{{ $c->name }}</td>
+                @endforeach
                 <td class="text-center">
                     <a class="text-success font-weight-bold"
                        href="{{ route('usuarios.edit',['usr'=>$usr->id]) }}">Editar</a>
@@ -47,7 +49,7 @@
         @endforeach
         </tbody>
     </table>
-    <br>
+    {{ $users->links() }}
     <a role="button" href="{{ route('admin.index') }}" class="btn btn-info"
        style="width: 150px">Volver</a>
 

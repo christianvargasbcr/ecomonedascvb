@@ -14,7 +14,7 @@ class UsuarioController extends Controller
 
     public function getListadoClientes(){
         if (Auth::user()->role_id == 1){
-            $users = User::with('role')->where('id','=',3)->paginate(10);
+            $users = User::with('centro')->where('role_id','=',3)->paginate(5);
             return view('admin.usuario.listado', ['users'=>$users]);
         }
         else{
@@ -24,7 +24,7 @@ class UsuarioController extends Controller
 
     public function getUsuarioIndex(){
         if (Auth::user()->role_id == 1){
-            $users = User::with('role')->where('id','=',2)->paginate(10);
+            $users = User::with('role')->where('role_id','=',2)->paginate(5);
             return view('admin.usuario.index', ['users'=>$users]);
         }
         else{
@@ -63,6 +63,7 @@ class UsuarioController extends Controller
                 'role_id' => 2,
             ]);
             $user->save();
+            $user->centro()->attach($request->input('centro'));
 
             return redirect()
                 ->route('usuarios.index')
@@ -101,6 +102,7 @@ class UsuarioController extends Controller
             $user->direccion = $request->input('direccion');
             $user->telefono = $request->input('telefono');
             $user->save();
+            $user->centro()->sync($request->input('centro'));
 
             return redirect()
                 ->route('usuarios.index')
