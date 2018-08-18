@@ -156,6 +156,11 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
             'as'=>'cupones.index'
         ]);
 
+        Route::get('categoria/{cat}',[
+            'uses'=>'CuponController@getCuponCategoria',
+            'as'=>'cupones.categoria'
+        ]);
+
         Route::get('create',[
             'uses'=>'CuponController@getCuponCreate',
             'as'=>'cupones.create',

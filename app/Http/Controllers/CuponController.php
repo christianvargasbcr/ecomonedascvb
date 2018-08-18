@@ -13,10 +13,27 @@ class CuponController extends Controller
 {
     public function getCuponIndex(){
         if (Auth::user()->role_id == 1){
+            $cups = Cupon::all();
+            $cats = Categoria::orderBy('nombre','asc')->get();
             $cupones = Cupon::with('categoria')
                 ->orderBy('nombre','asc')
                 ->paginate(5);
-            return view('admin.cupon.index',['cupones'=>$cupones]);
+            return view('admin.cupon.index',['cups'=>$cups,'cats'=>$cats,'cupones'=>$cupones]);
+        }
+        else{
+            return redirect()->route('principal');
+        }
+    }
+
+    public function getCuponCategoria(Categoria $cat){
+        if (Auth::user()->role_id == 1){
+            $cups = Cupon::all();
+            $cats = Categoria::orderBy('nombre','asc')->get();
+            $cupones = Cupon::with('categoria')
+                ->where('categoria_id',$cat->id)
+                ->orderBy('nombre','asc')
+                ->paginate(5);
+            return view('admin.cupon.index',['cups'=>$cups,'cats'=>$cats,'cupones'=>$cupones]);
         }
         else{
             return redirect()->route('principal');
