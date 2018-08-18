@@ -52,7 +52,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="">
+                <a href="{{ route('cupones.index') }}">
                     <div class="card" style="display:inline-block; width: 250px; height: 100%">
                         <br>
                         <img class="card-img-top" src="{{ Storage::disk('s3')->url('ecoimg/img/adm_cup_logo.jpg') }}"

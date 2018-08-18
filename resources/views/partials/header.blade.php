@@ -28,11 +28,12 @@
                             <b>Administrar</b>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item text-success" href="{{ route('centro.index') }}">Centros de Acopio</a>
+                            <a class="dropdown-item text-success"
+                               href="{{ route('centro.index') }}">Centros de Acopio</a>
                             <a class="dropdown-item text-success"
                                href="{{ route('materiales.index') }}">Materiales Reciclables</a>
                             <a class="dropdown-item text-success"
-                               href="#">Cupones de Canje</a>
+                               href="{{ route('cupones.index') }}">Cupones de Canje</a>
                         </div>
                     </li>
                     <li class="nav-item">
