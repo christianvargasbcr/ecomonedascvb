@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call(CentroTableSeeder::class);
         $this->call(MaterialTableSeeder::class);
         $this->call(UsuarioCentroTableSeeder::class);
+        $this->call(CategoriaTableSeeder::class);
+        $this->call(CuponTableSeeder::class);
 
     }
 }
