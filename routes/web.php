@@ -137,6 +137,30 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
 
     Route::group(['prefix'=>'cupones'], function (){
 
+        Route::get('',[
+            'uses'=>'CuponController@getCuponIndex',
+            'as'=>'cupones.index'
+        ]);
+
+        Route::get('create',[
+            'uses'=>'CuponController@getCuponCreate',
+            'as'=>'cupones.create',
+        ]);
+
+        Route::post('create',[
+            'uses'=>'CuponController@cuponCreate',
+            'as'=>'cupones.create',
+        ]);
+
+        Route::get('edit/{cup}',[
+            'uses'=>'CuponController@getCuponEdit',
+            'as'=>'cupones.edit',
+        ]);
+
+        Route::post('edit/{cup}',[
+            'uses'=>'CuponController@cuponEdit',
+            'as'=>'cupones.edit',
+        ]);
     });
 
 });
