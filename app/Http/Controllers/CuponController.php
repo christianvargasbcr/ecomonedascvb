@@ -12,8 +12,10 @@ class CuponController extends Controller
 {
     public function getCuponIndex(){
         if (Auth::user()->role_id == 1){
-
-            return null;
+            $cupones = Cupon::with('categoria')
+                ->orderBy('nombre','asc')
+                ->paginate(5);
+            return view('admin.cupon.index',['cupones'=>$cupones]);
         }
         else{
             return redirect()->route('principal');

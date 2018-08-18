@@ -11,7 +11,7 @@ class MaterialController extends Controller
 {
     public function getMaterialIndex(){
         if (Auth::user()->role_id == 1){
-            $materiales = Material::all();
+            $materiales = Material::orderBy('nombre','asc')->paginate(5);
             return view('admin.material.index', ['materiales'=>$materiales]);
         }
         else{
