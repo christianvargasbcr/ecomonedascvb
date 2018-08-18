@@ -11,16 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('principal');
-})->name('principal');
 
-Route::group(['prefix'=>'publico'], function (){
+
+Route::group(['prefix'=>''], function (){
+
+    Route::get('/',[
+        'uses'=>'PublicoController@getPrincipal',
+        'as'=>'principal',
+    ]);
 
     Route::get('/centros-de-acopio',[
         'uses'=>'PublicoController@getCentrosAcopio',
         'as'=>'centros-de-acopio',
     ]);
+
     Route::get('/centros-de-acopio/detalle-centro/{id}',[
         'uses'=>'PublicoController@getDetalleCentro',
         'as'=>'detalle-centro',
@@ -34,6 +38,11 @@ Route::group(['prefix'=>'publico'], function (){
     Route::get('/cupones-disponibles',[
         'uses'=>'PublicoController@getCuponesDisponibles',
         'as'=>'cupones-disponibles',
+    ]);
+
+    Route::get('/cupones-categoria/{cat}',[
+        'uses'=>'PublicoController@getCuponesFiltrados',
+        'as'=>'cupones-categoria',
     ]);
 
 });
