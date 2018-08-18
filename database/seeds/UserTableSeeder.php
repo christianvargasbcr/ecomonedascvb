@@ -23,11 +23,11 @@ class UserTableSeeder extends Seeder
         ]);
 
         $cliente = \App\User::create([
-            'name' => 'Cliente',
-            'email' => 'cliente@cvb.com',
+            'name' => 'Cliente 1',
+            'email' => 'cliente1@cvb.com',
             'direccion' => 'Costa Rica',
             'telefono' => '88222222',
-            'password' => Hash::make('123quesO!'),
+            'password' => Hash::make('123clientE!'),
             'role_id' => 3,
         ]);
 
@@ -36,7 +36,7 @@ class UserTableSeeder extends Seeder
             'email' => 'admindesamparados@cvb.com',
             'direccion' => 'Costa Rica',
             'telefono' => '88333333',
-            'password' => Hash::make('123quesO!'),
+            'password' => Hash::make('123admiN!'),
             'role_id' => 2,
         ]);
 
@@ -45,7 +45,7 @@ class UserTableSeeder extends Seeder
             'email' => 'adminsantodomingo@cvb.com',
             'direccion' => 'Costa Rica',
             'telefono' => '88444444',
-            'password' => Hash::make('123quesO!'),
+            'password' => Hash::make('123admiN!'),
             'role_id' => 2,
         ]);
 
@@ -54,7 +54,7 @@ class UserTableSeeder extends Seeder
             'email' => 'adminsanrafael@cvb.com',
             'direccion' => 'Costa Rica',
             'telefono' => '88555555',
-            'password' => Hash::make('123quesO!'),
+            'password' => Hash::make('123admiN!'),
             'role_id' => 2,
         ]);
 
@@ -63,8 +63,44 @@ class UserTableSeeder extends Seeder
             'email' => 'adminpalmares@cvb.com',
             'direccion' => 'Costa Rica',
             'telefono' => '88666666',
-            'password' => Hash::make('123quesO!'),
+            'password' => Hash::make('123admiN!'),
             'role_id' => 2,
+        ]);
+
+        $cliente = \App\User::create([
+            'name' => 'Cliente 2',
+            'email' => 'cliente2@cvb.com',
+            'direccion' => 'Costa Rica',
+            'telefono' => '88777777',
+            'password' => Hash::make('123clientE!'),
+            'role_id' => 3,
+        ]);
+
+        $cliente = \App\User::create([
+            'name' => 'Cliente 3',
+            'email' => 'cliente3@cvb.com',
+            'direccion' => 'Costa Rica',
+            'telefono' => '88888888',
+            'password' => Hash::make('123clientE!'),
+            'role_id' => 3,
+        ]);
+
+        $cliente = \App\User::create([
+            'name' => 'Cliente 4',
+            'email' => 'cliente4@cvb.com',
+            'direccion' => 'Costa Rica',
+            'telefono' => '88999999',
+            'password' => Hash::make('123clientE!'),
+            'role_id' => 3,
+        ]);
+
+        $cliente = \App\User::create([
+            'name' => 'Cliente 5',
+            'email' => 'cliente5@cvb.com',
+            'direccion' => 'Costa Rica',
+            'telefono' => '88100000',
+            'password' => Hash::make('123clientE!'),
+            'role_id' => 3,
         ]);
     }
 }
