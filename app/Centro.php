@@ -13,4 +13,13 @@ class Centro extends Model
     public function provincia(){
         return $this->belongsTo('App\Provincia');
     }
+
+    public function usuario(){
+        return $this->belongsToMany(
+            'App/User',
+            'usuario_centro',
+            'centro_id',
+            'usuario_id'
+        )->withTimestamps();
+    }
 }

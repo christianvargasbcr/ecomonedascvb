@@ -31,6 +31,15 @@ class User extends Authenticatable
         return $this->belongsTo('App\Role');
     }
 
+    public function centro(){
+        return $this->belongsToMany(
+            'App\Centro',
+            'usuario_centro',
+            'usuario_id',
+            'centro_id'
+        )->withTimestamps();
+    }
+
     public function tieneAcceso(array $permissions){
         foreach($this->roles as $role){
             if($role->tieneAcceso($permissions)){

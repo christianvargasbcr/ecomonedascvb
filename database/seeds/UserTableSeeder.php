@@ -17,27 +17,54 @@ class UserTableSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@cvb.com',
             'direccion' => 'Costa Rica',
-            'telefono' => '88888888',
+            'telefono' => '88111111',
             'password' => Hash::make('123quesO!'),
             'role_id' => 1,
-        ]);
-
-        $centro = \App\User::create([
-            'name' => 'Acopio',
-            'email' => 'acopio@cvb.com',
-            'direccion' => 'Costa Rica',
-            'telefono' => '88888888',
-            'password' => Hash::make('123quesO!'),
-            'role_id' => 2,
         ]);
 
         $cliente = \App\User::create([
             'name' => 'Cliente',
             'email' => 'cliente@cvb.com',
             'direccion' => 'Costa Rica',
-            'telefono' => '88888888',
+            'telefono' => '88222222',
             'password' => Hash::make('123quesO!'),
             'role_id' => 3,
+        ]);
+
+        $centro = \App\User::create([
+            'name' => 'Admin Desamparados',
+            'email' => 'admindesamparados@cvb.com',
+            'direccion' => 'Costa Rica',
+            'telefono' => '88333333',
+            'password' => Hash::make('123quesO!'),
+            'role_id' => 2,
+        ]);
+
+        $centro = \App\User::create([
+            'name' => 'Admin Santo Domingo',
+            'email' => 'adminsantodomingo@cvb.com',
+            'direccion' => 'Costa Rica',
+            'telefono' => '88444444',
+            'password' => Hash::make('123quesO!'),
+            'role_id' => 2,
+        ]);
+
+        $centro = \App\User::create([
+            'name' => 'Admin San Rafael',
+            'email' => 'adminsanrafael@cvb.com',
+            'direccion' => 'Costa Rica',
+            'telefono' => '88555555',
+            'password' => Hash::make('123quesO!'),
+            'role_id' => 2,
+        ]);
+
+        $centro = \App\User::create([
+            'name' => 'Admin Palmares',
+            'email' => 'adminpalmares@cvb.com',
+            'direccion' => 'Costa Rica',
+            'telefono' => '88666666',
+            'password' => Hash::make('123quesO!'),
+            'role_id' => 2,
         ]);
     }
 }

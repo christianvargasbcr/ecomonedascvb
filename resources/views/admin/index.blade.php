@@ -38,13 +38,13 @@
                         </div>
                     </div>
                 </a>
-                <a href="">
+                <a href="{{ route('usuarios.index') }}">
                     <div class="card" style="display:inline-block; width: 250px; height: 100%">
                         <br>
                         <img class="card-img-top" src="{{ Storage::disk('s3')->url('ecoimg/img/adm_usr_logo.png') }}"
                              alt="Usuarios Logo" style="height: 125px; width: 200px; display: block; margin-left: auto; margin-right: auto">
                         <div class="card-body">
-                            <h6 class="card-title text-success">Usuarios</h6>
+                            <h6 class="card-title text-success">Gestion Administradores</h6>
                             <p class="card-text text-success">
                                 This is a wider card with supporting text below as a natural
                                 lead-in to additional content.
