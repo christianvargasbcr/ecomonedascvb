@@ -13,12 +13,14 @@
 
                 <div class="form-group">
                     <label class="col-form-label" for="nombre">Nombre</label>
-                    <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre">
+                    <input type="text" class="form-control" placeholder="Ingrese el Nombre"
+                           id="nombre" name="nombre">
                 </div>
 
                 <div class="form-group">
                     <label class="col-form-label" for="precio">Precio</label>
-                    <input type="number" class="form-control" placeholder="Precio" id="precio" name="precio">
+                    <input type="number" class="form-control" placeholder="Ingrese el Precio"
+                           id="precio" name="precio">
                 </div>
 
                 <div class="form-group">

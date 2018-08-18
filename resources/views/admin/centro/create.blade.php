@@ -13,7 +13,8 @@
 
                 <div class="form-group">
                     <label class="col-form-label" for="name">Nombre</label>
-                    <input type="text" class="form-control" placeholder="Nombre" id="name" name="name">
+                    <input type="text" class="form-control" placeholder="Ingrese el Nombre"
+                           id="name" name="name">
                 </div>
 
                 <div class="form-group">

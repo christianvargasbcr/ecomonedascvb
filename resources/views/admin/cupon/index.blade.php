@@ -12,7 +12,7 @@
     @endif
     <br>
     <div class="row text-center">
-        <h2 class="text-success text-center">Manejar Cupones</h2>
+        <h2 class="text-success text-center">Manejar Cupones de Canje</h2>
     </div>
     @if( Auth::user()->role_id === 1 )
         <br>
