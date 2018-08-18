@@ -31,6 +31,11 @@ Route::group(['prefix'=>'publico'], function (){
         'as'=>'materiales-de-reciclaje',
     ]);
 
+    Route::get('/cupones-disponibles',[
+        'uses'=>'PublicoController@getCuponesDisponibles',
+        'as'=>'cupones-disponibles',
+    ]);
+
 });
 
 Route::get('acerca', function () {
