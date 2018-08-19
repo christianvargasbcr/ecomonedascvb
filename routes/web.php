@@ -51,11 +51,20 @@ Route::get('acerca', function () {
     return view('otros.acerca-de');
 })->name('otros.acerca');
 
+Route::get('centro-deshabilitado', function () {
+    return view('otros.centrodeshabilitado');
+})->name('centro-deshabilitado');
+
 Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
 
     Route::get('',[
         'uses'=>'AdminController@getAdminIndex',
         'as'=>'admin.index'
+    ]);
+
+    Route::get('acopioindex',[
+        'uses'=>'AdminController@getAcopioIndex',
+        'as'=>'admin.acopioindex'
     ]);
 
     Route::group(['prefix'=>'centro'], function (){
@@ -197,6 +206,34 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
         ]);
     });
 
+    Route::group(['prefix'=>'canjes'], function (){
+
+        Route::get('',[
+            'uses'=>'CanjeController@getCanjeIndex',
+            'as'=>'canjes.index'
+        ]);
+
+        /*Route::get('create',[
+            'uses'=>'CanjeController@getMaterialCreate',
+            'as'=>'materiales.create',
+        ]);
+
+        Route::post('create',[
+            'uses'=>'CanjeController@materialCreate',
+            'as'=>'materiales.create',
+        ]);
+
+        Route::get('edit/{mat}',[
+            'uses'=>'CanjeController@getMaterialEdit',
+            'as'=>'materiales.edit',
+        ]);
+
+        Route::post('edit/{mat}',[
+            'uses'=>'CanjeController@materialEdit',
+            'as'=>'materiales.edit',
+        ]);*/
+
+    });
 });
 
 Route::group(['prefix'=>'cliente','middleware'=>'auth'],function (){
