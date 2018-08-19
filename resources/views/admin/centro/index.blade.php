@@ -20,6 +20,8 @@
             <div class="col-md-12">
                 <a class="btn btn-success" href="{{ route('centro.create') }}"
                    role="button" style="width: 150px">Crear Nuevo</a>
+                <a class="btn btn-warning" href="{{ route('centro.borrados') }}"
+                   role="button" style="width: 150px">Borrados</a>
             </div>
         </div>
         <br>
@@ -31,6 +33,7 @@
                 <th scope="col">Provincia</th>
                 <th scope="col">Teléfono</th>
                 <th scope="col" class="text-center">Editar</th>
+                <th scope="col" class="text-center">Deshabilitar</th>
             </tr>
         </thead>
         <tbody>
@@ -43,10 +46,15 @@
                     <a class="text-success font-weight-bold"
                        href="{{ route('centro.edit',['ca'=>$centro->id]) }}">Editar</a>
                 </td>
+                <td class="text-center">
+                    <a class="text-success font-weight-bold"
+                       href="{{ route('centro.delete',['ca'=>$centro->id]) }}">Deshabilitar</a>
+                </td>
             </tr>
         @endforeach
         </tbody>
     </table>
+    @csrf
     {{ $centros->links() }}
     <a role="button" href="{{ route('admin.index') }}" class="btn btn-info"
        style="width: 150px">Volver</a>
