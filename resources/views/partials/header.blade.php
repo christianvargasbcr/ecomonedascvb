@@ -3,7 +3,11 @@
         @guest
             href="{{ route('principal') }}">
         @else
-            href="{{ route('admin.index') }}">
+            @if(Auth::user()->role_id === 1)
+                href="{{ route('admin.index') }}">
+            @else
+                href="{{ route('admin.acopioindex') }}">
+            @endif
         @endguest
         <b>Ecomonedas</b>
     </a>

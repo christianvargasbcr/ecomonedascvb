@@ -213,25 +213,20 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
             'as'=>'canjes.index'
         ]);
 
-        /*Route::get('create',[
-            'uses'=>'CanjeController@getMaterialCreate',
-            'as'=>'materiales.create',
+        Route::get('create',[
+            'uses'=>'CanjeController@getCanjeCreate',
+            'as'=>'canjes.create',
         ]);
 
         Route::post('create',[
-            'uses'=>'CanjeController@materialCreate',
-            'as'=>'materiales.create',
+            'uses'=>'CanjeController@canjeCreate',
+            'as'=>'canjes.create',
         ]);
 
-        Route::get('edit/{mat}',[
-            'uses'=>'CanjeController@getMaterialEdit',
-            'as'=>'materiales.edit',
+        Route::get('detail/{id}',[
+            'uses'=>'CanjeController@getCanje',
+            'as'=>'canjes.detail',
         ]);
-
-        Route::post('edit/{mat}',[
-            'uses'=>'CanjeController@materialEdit',
-            'as'=>'materiales.edit',
-        ]);*/
 
     });
 });
