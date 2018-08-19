@@ -85,6 +85,21 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
             'as'=>'centro.edit',
         ]);
 
+        Route::get('borrados',[
+            'uses'=>'CentroController@getCentroBorrados',
+            'as'=>'centro.borrados'
+        ]);
+
+        Route::get('restore/{id}',[
+            'uses'=>'CentroController@habilitarCentro',
+            'as'=>'centro.restore',
+        ]);
+
+        Route::get('delete/{ca}',[
+            'uses'=>'CentroController@deshabilitarCentro',
+            'as'=>'centro.delete',
+        ]);
+
     });
 
     Route::group(['prefix'=>'materiales'], function (){

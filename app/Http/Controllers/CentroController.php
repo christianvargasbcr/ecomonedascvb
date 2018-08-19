@@ -23,6 +23,44 @@ class CentroController extends Controller
         }
     }
 
+    public function deshabilitarCentro(Centro $ca){
+        if (Auth::user()->role_id == 1){
+            $centro = Centro::find($ca->id);
+            $centro->delete();
+            $centros = Centro::with('provincia')
+                ->orderBy('name','asc')
+                ->paginate(5);
+            return view('admin.centro.index', ['centros'=>$centros]);
+        }
+        else{
+            return redirect()->route('principal');
+        }
+    }
+
+    public function getCentroBorrados(){
+        if (Auth::user()->role_id == 1){
+            $centros = Centro::onlyTrashed()->get();
+            return view('admin.centro.borrados', ['centros'=>$centros]);
+        }
+        else{
+            return redirect()->route('principal');
+        }
+    }
+
+    public function habilitarCentro($id){
+        if (Auth::user()->role_id == 1){
+            $ca = Centro::onlyTrashed()->where('id',$id)->first();
+            $ca->restore();
+            $centros = Centro::with('provincia')
+                ->orderBy('name','asc')
+                ->paginate(5);
+            return view('admin.centro.index', ['centros'=>$centros]);
+        }
+        else{
+            return redirect()->route('principal');
+        }
+    }
+
     public function getCentroCreate(){
         if (Auth::user()->role_id == 1){
             $provs = Provincia::all();
