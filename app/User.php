@@ -40,6 +40,14 @@ class User extends Authenticatable
         )->withTimestamps();
     }
 
+    public function canjes(){
+        return $this->hasMany('App\Canje');
+    }
+
+    public function billeteras(){
+        return $this->hasMany('App\Billetera');
+    }
+
     public function tieneAcceso(array $permissions){
         foreach($this->roles as $role){
             if($role->tieneAcceso($permissions)){

@@ -51,11 +51,20 @@ Route::get('acerca', function () {
     return view('otros.acerca-de');
 })->name('otros.acerca');
 
+Route::get('centro-deshabilitado', function () {
+    return view('otros.centrodeshabilitado');
+})->name('centro-deshabilitado');
+
 Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
 
     Route::get('',[
         'uses'=>'AdminController@getAdminIndex',
         'as'=>'admin.index'
+    ]);
+
+    Route::get('acopioindex',[
+        'uses'=>'AdminController@getAcopioIndex',
+        'as'=>'admin.acopioindex'
     ]);
 
     Route::group(['prefix'=>'centro'], function (){
@@ -197,6 +206,44 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
         ]);
     });
 
+    Route::group(['prefix'=>'canjes'], function (){
+
+        Route::get('',[
+            'uses'=>'CanjeController@getCanjeIndex',
+            'as'=>'canjes.index'
+        ]);
+
+        Route::get('search',[
+            'uses'=>'CanjeController@getUserByEmail',
+            'as'=>'search.canjes'
+        ]);
+
+        Route::get('create',[
+            'uses'=>'CanjeController@getCanjeCreate',
+            'as'=>'canjes.create',
+        ]);
+
+        Route::post('create',[
+            'uses'=>'CanjeController@canjeCreate',
+            'as'=>'canjes.create',
+        ]);
+
+        Route::post('store',[
+            'uses'=>'CanjeController@canjeDetalleCreate',
+            'as'=>'store.canjes',
+        ]);
+
+        Route::get('detail/{id}',[
+            'uses'=>'CanjeController@getCanje',
+            'as'=>'canjes.detail',
+        ]);
+
+        Route::get('finalizar',[
+            'uses'=>'CanjeController@finalizarRegistroCanje',
+            'as'=>'canjes.finalizar',
+        ]);
+
+    });
 });
 
 Route::group(['prefix'=>'cliente','middleware'=>'auth'],function (){

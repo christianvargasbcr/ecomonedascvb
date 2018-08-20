@@ -23,7 +23,10 @@ class CreateCentrosTable extends Migration
             $table->string('imagen');
             $table->softDeletes();
             $table->timestamps();
-            $table->foreign('provincia_id')->references('id')->on('provincias');
+            $table->foreign('provincia_id')
+                ->references('id')
+                ->on('provincias')
+                ->onDelete('cascade');
         });
     }
 

@@ -26,6 +26,9 @@ class LoginController extends Controller
         if ($rol == 3){
             return '/cliente';
         }
+        elseif ($rol == 2){
+            return '/admin/acopioindex';
+        }
         else{
             return '/admin';
         }
