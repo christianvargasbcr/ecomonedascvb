@@ -77,7 +77,7 @@ class ClienteController extends Controller
             return redirect()->route('ciente.billetera');
         }
         else {
-            redirect()->route('principal');
+            redirect()->route('cliente.index');
         }
 
     }
