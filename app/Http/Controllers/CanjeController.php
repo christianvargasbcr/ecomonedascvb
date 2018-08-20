@@ -123,7 +123,9 @@ class CanjeController extends Controller
                 $id = Input::get('canje_id');
                 $canje = Canje::find($id);
                 $billetera = Billetera::where('cliente_id',$canje->cliente_id)->first();
+                $disponible = $billetera->saldo_disponible + $canje->total;
                 $total = $billetera->saldo_canjes + $canje->total;
+                $billetera->saldo_disponible = $disponible;
                 $billetera->saldo_canjes = $total;
                 $billetera->save();
                 $centroId = $user->centro->first()->id;

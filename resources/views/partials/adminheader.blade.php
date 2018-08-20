@@ -39,3 +39,17 @@
         <a class="nav-link" href="#"><b>Reportes</b></a>
     </li>
 @endif
+@if(Auth::user()->role_id === 3)
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('ciente.billetera') }}"><b>Billetera Electrónica</b></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('cupones-disponibles') }}"><b>Canjear Ecomonedas</b></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('ciente.historial-canjes') }}"><b>Historial de Canjes</b></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('ciente.historial-compras') }}"><b>Historial de Compras</b></a>
+    </li>
+@endif

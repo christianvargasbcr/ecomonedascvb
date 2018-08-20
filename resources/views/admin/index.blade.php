@@ -19,8 +19,8 @@
                         <div class="card-body">
                             <h6 class="card-title text-success">Centros de Acopio</h6>
                             <p class="card-text text-success">
-                                This is a wider card with supporting text below as a natural
-                                lead-in to additional content.
+                                Manejar, crear y actualizar información de Centros de Acopio.
+                                Deshabilitar centros para restringir transacciones.
                             </p>
                         </div>
                     </div>
@@ -33,7 +33,8 @@
                         <div class="card-body">
                             <h6 class="card-title text-success">Materiales de Reciclaje</h6>
                             <p class="card-text text-success">
-                                This card has supporting text below as a natural lead-in to additional content.
+                                Manejar, crear y actualizar Materiales Reciclables disponibles para
+                                canjear por Ecomonedas
                             </p>
                         </div>
                     </div>
@@ -46,8 +47,8 @@
                         <div class="card-body">
                             <h6 class="card-title text-success">Gestion Administradores</h6>
                             <p class="card-text text-success">
-                                This is a wider card with supporting text below as a natural
-                                lead-in to additional content.
+                                Manejar, crear y actualizar información de usuarios administradores
+                                de Centros de Acopio. Ver listado de Clientes
                             </p>
                         </div>
                     </div>
@@ -60,8 +61,8 @@
                         <div class="card-body">
                             <h6 class="card-title text-success">Cupones de Canje</h6>
                             <p class="card-text text-success">
-                                This is a wider card with supporting text below as a natural lead-in to
-                                additional content.
+                                Manejar, crear y actualizar información de Cupones de Canje disponibles para
+                                compras utlizando las ecomonedas.
                             </p>
                         </div>
                     </div>

@@ -252,8 +252,38 @@ Route::group(['prefix'=>'cliente','middleware'=>'auth'],function (){
         'uses'=>'ClienteController@getClienteIndex',
         'as'=>'cliente.index'
     ]);
+
+    Route::get('historial-canjes',[
+        'uses'=>'ClienteController@getHistorialCanjes',
+        'as'=>'ciente.historial-canjes',
+    ]);
+
+    Route::get('historial-compras',[
+        'uses'=>'ClienteController@getHistorialCanjes',
+        'as'=>'ciente.historial-compras',
+    ]);
+
+    Route::get('detalle-canje/{id}',[
+        'uses'=>'ClienteController@getDetalleCanje',
+        'as'=>'ciente.detalle-canje',
+    ]);
+
+    Route::get('comprar/{cup}',[
+        'uses'=>'ClienteController@getRealizarCompra',
+        'as'=>'ciente.comprar',
+    ]);
+
+    Route::post('compra',[
+        'uses'=>'ClienteController@realizarCompra',
+        'as'=>'ciente.compra',
+    ]);
+
+    Route::get('billetera',[
+        'uses'=>'ClienteController@getBilletera',
+        'as'=>'ciente.billetera',
+    ]);
+
 });
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');

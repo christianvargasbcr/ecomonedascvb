@@ -49,7 +49,9 @@
                                     @auth()
                                         @if( Auth::user()->role_id === 3 )
                                             <div class="card-body">
-                                                <a href="#" class="card-link"><b>Comprar</b></a>
+                                                <a href="{{ route('ciente.comprar',['cup'=>$cup->id]) }}"
+                                                   class="btn btn-success" role="button"
+                                                   style="width: 100px"><b>Comprar</b></a>
                                             </div>
                                         @endif
                                     @endauth
