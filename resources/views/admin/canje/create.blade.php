@@ -87,7 +87,7 @@
                             <th class="text-center" scope="col">Cantidad</th>
                             <th class="text-center" scope="col">Precio</th>
                             <th class="text-center" scope="col">Total</th>
-                            <th class="text-center" scope="col">Eliminar</th>
+                            <th class="text-center" scope="col"></th>
                             {{--<th scope="col" class="text-center">Editar</th>
                             <th scope="col" class="text-center">Deshabilitar</th>--}}
                         </tr>
@@ -95,9 +95,16 @@
                     <tbody>
 
                     </tbody>
+                    <tfoot class="text-center">
+                        <th></th>
+                        <th></th>
+                        <th class="text-success" scope="col">Ecomonedas</th>
+                        <th class="text-success" scope="col"></th>
+                    </tfoot>
                 </table>
             </div>
         </div>
+        <input type="hidden" name="canje_id" id="canje_id" value="">
         <input type="hidden" name="cliente_id" id="cliente_id" value="">
         <input type="hidden" name="centro_id" id="centro_id" value="{{ $centro->id }}">
     </div>

@@ -16,4 +16,8 @@ class Canje extends Model
         return $this->belongsTo('App\Centro');
     }
 
+    public function detalleCanjes(){
+        return $this->hasMany('App\CanjeDetalle');
+    }
+
 }

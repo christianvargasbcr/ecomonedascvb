@@ -63,7 +63,7 @@ class CanjeController extends Controller
         $canje->centro_id = $request->input('centro_id');
         $canje->cliente_id = $request->input('cliente_id');
         $canje->save();
-        return response()->json();
+        return response()->json($canje);
     }
 
     public function getCanje(){

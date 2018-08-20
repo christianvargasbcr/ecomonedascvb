@@ -15,7 +15,19 @@ class CreateCanjeDetallesTable extends Migration
     {
         Schema::create('canje_detalles', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('canje_id')->unsigned();
+            $table->integer('material_id')->unsigned();
+            $table->integer('cantidad');
+            $table->double('monto');
             $table->timestamps();
+            $table->foreign('canje_id')
+                ->references('id')
+                ->on('canjes')
+                ->onDelete('cascade');
+            $table->foreign('material_id')
+                ->references('id')
+                ->on('materials')
+                ->onDelete('cascade');
         });
     }
 

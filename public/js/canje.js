@@ -31,16 +31,19 @@ $(document).ready(function () {
         e.preventDefault();
         $.ajax({
             type: 'post',
-            url: 'canjes/create/',
+            url: 'create/',
             data: {
                 '_token': $('input[name=_token]').val(),
-                'centro_id': $('input[name=centro_id]'),
-                'cliente_id': $('input[name=cliente_id]')
+                'centro_id': $('input[name=centro_id]').val(),
+                'cliente_id': $('input[name=cliente_id]').val()
             },
             success:function (data) {
                 $("#addDetail").removeClass('btn btn-success btn-sm disabled').addClass('btn btn-success btn-sm');
                 $("#material").prop('disabled',false);
                 $("#cantidad").prop('disabled',false);
+                $("#registrarCanje").hide();
+                $("#registrarCanje").removeClass('btn btn-success btn-sm').addClass('btn btn-success btn-sm disabled');
+                $("#cliente_id").val(data['id']);
             }
         });
     });
