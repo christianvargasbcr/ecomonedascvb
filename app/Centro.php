@@ -19,6 +19,10 @@ class Centro extends Model
         return $this->belongsTo('App\Provincia');
     }
 
+    public function canjes(){
+        return $this->hasMany('App\Canje');
+    }
+
     public function usuario(){
         return $this->belongsToMany(
             'App/User',

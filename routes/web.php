@@ -213,6 +213,11 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
             'as'=>'canjes.index'
         ]);
 
+        Route::get('search',[
+            'uses'=>'CanjeController@getUserByEmail',
+            'as'=>'search.canjes'
+        ]);
+
         Route::get('create',[
             'uses'=>'CanjeController@getCanjeCreate',
             'as'=>'canjes.create',

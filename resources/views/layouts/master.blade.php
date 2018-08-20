@@ -13,5 +13,6 @@
         <footer>
             @include('partials.footer')
         </footer>
+        <script type="text/javascript" src="{{ URL::to('js/canje.js') }}"></script>
     </body>
 </html>

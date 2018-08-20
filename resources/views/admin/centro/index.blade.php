@@ -22,6 +22,7 @@
                    role="button" style="width: 150px">Crear Nuevo</a>
                 <a class="btn btn-warning" href="{{ route('centro.borrados') }}"
                    role="button" style="width: 150px">Borrados</a>
+
             </div>
         </div>
         <br>
