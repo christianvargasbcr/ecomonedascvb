@@ -90,4 +90,18 @@ class ClienteController extends Controller
             return redirect()->route('principal');
         }
     }
+
+    public function getHistorialCompras(){
+        if (Auth::user()->role_id == 3){
+            $cliente_id = Auth::user()->id;
+            $compras = Compra::with('cupon','cliente')
+                ->where('cliente_id',$cliente_id)
+                ->orderBy('created_at','asc')
+                ->paginate(5);
+            return view('cliente.historial-compras',['compras'=>$compras]);
+        }
+        else{
+            return redirect()->route('principal');
+        }
+    }
 }

@@ -10,6 +10,6 @@
     </ul>
     <div class="card-body">
         <a href="{{ route('cupones-disponibles') }}" class="card-link text-success font-weight-bold">Compras</a>
-        <a href="#" class="card-link text-success font-weight-bold">Historial</a>
+        <a href="{{ route('ciente.historial-compras') }}" class="card-link text-success font-weight-bold">Historial</a>
     </div>
 </div>

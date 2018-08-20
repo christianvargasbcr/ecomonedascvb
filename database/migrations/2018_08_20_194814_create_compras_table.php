@@ -22,7 +22,7 @@ class CreateComprasTable extends Migration
             $table->foreign('cliente_id')->references('id')->on('users')->onDelete('cascade');
         });
 
-        DB::statement("ALTER TABLE canjes AUTO_INCREMENT = 10122034000;");
+        DB::statement("ALTER TABLE compras AUTO_INCREMENT = 101000;");
     }
 
     /**

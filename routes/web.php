@@ -258,6 +258,11 @@ Route::group(['prefix'=>'cliente','middleware'=>'auth'],function (){
         'as'=>'ciente.historial-canjes',
     ]);
 
+    Route::get('historial-compras',[
+        'uses'=>'ClienteController@getHistorialCanjes',
+        'as'=>'ciente.historial-compras',
+    ]);
+
     Route::get('detalle-canje/{id}',[
         'uses'=>'ClienteController@getDetalleCanje',
         'as'=>'ciente.detalle-canje',
