@@ -39,11 +39,48 @@ $(document).ready(function () {
             },
             success:function (data) {
                 $("#addDetail").removeClass('btn btn-success btn-sm disabled').addClass('btn btn-success btn-sm');
-                $("#material").prop('disabled',false);
+                $("#material_id").prop('disabled',false);
                 $("#cantidad").prop('disabled',false);
                 $("#registrarCanje").hide();
                 $("#registrarCanje").removeClass('btn btn-success btn-sm').addClass('btn btn-success btn-sm disabled');
-                $("#cliente_id").val(data['id']);
+                $("#canje_id").val(data['id']);
+            }
+        });
+    });
+
+    $("#addDetail").click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'post',
+            url: 'store/',
+            data: {
+                '_token': $('input[name=_token]').val(),
+                'canje_id': $('input[name=canje_id]').val(),
+                'material_id': $('select[name=material_id]').val(),
+                'cantidad': $('input[name=cantidad]').val()
+            },
+            success:function (data) {
+                if ((data.errors)) {
+                    $.each(data.errors,function(key,value){
+                        $("#errorAgregar").show();
+                        $("#errorAgregar").append(value);
+                    });
+
+                }else{
+                    $("#detalleCanjesTable").append(
+                        "<tr>"+
+                        "<td>"+data[1]['material']['nombre']+"</td>"+
+                        "<td class='text-center'>"+data[1]['cantidad']+"</td>"+
+                        "<td class='text-center'>"+data[1]['material']['precio']+"</td>"+
+                        "<td class='text-center'>"+data[1]['monto']+"</td>"+
+                        "</tr>"
+                    );
+
+                    $("#totalCanje").replaceWith(
+                        "<th id='totalCanje' class='text-success' scope='col'>"+data[0]['total']+"</th>"
+                    );
+                    $("#finalizarRegistro").removeClass('btn btn-success btn-sm disabled').addClass('btn btn-success btn-sm');
+                }
             }
         });
     });

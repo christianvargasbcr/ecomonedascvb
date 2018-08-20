@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Canje;
+use App\CanjeDetalle;
 use App\Material;
 use App\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use phpDocumentor\Reflection\Types\Array_;
 
 class CanjeController extends Controller
 {
@@ -62,16 +64,29 @@ class CanjeController extends Controller
         $canje = new Canje;
         $canje->centro_id = $request->input('centro_id');
         $canje->cliente_id = $request->input('cliente_id');
+        $canje->total = 0;
         $canje->save();
         return response()->json($canje);
     }
 
     public function canjeDetalleCreate(Request $request){
-        $canje = new Canje;
-        $canje->centro_id = $request->input('centro_id');
-        $canje->cliente_id = $request->input('cliente_id');
+        $cd = new CanjeDetalle();
+        $cd->canje_id = $request->input('canje_id');
+        $cd->material_id = $request->input('material_id');
+        $mat = Material::find($request->input('material_id'));
+        $precio = $mat->precio;
+        $cantidad = $request->input('cantidad');
+        $monto = $precio * $cantidad;
+        $cd->cantidad = $cantidad;
+        $cd->monto = $monto;
+        $cd->save();
+        $canje = Canje::find($cd->canje_id);
+        $total = $canje->total;
+        $canje->total = $total + $monto;
         $canje->save();
-        return response()->json($canje);
+        $detalle = CanjeDetalle::with('material')->where('id',$cd->id)->first();
+        $result = array($canje,$detalle);
+        return response()->json($result);
     }
 
     public function getCanje(){

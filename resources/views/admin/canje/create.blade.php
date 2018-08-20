@@ -54,9 +54,9 @@
                     <br>
                     <h6 class="text-success">Agregar Material</h6>
                     <div class="form-group" style="display: inline-flex">
-                        <label class="col-form-label col-form-label-sm text-success" for="material"
+                        <label class="col-form-label col-form-label-sm text-success" for="material_id"
                                style="margin-right: 10px">Material</label>
-                        <select class="form-control form-control-sm" id="material" name="material"
+                        <select class="form-control form-control-sm" id="material_id" name="material_id"
                                 style="width: 200px" disabled>
                             <option value="0">Seleccione un material</option>
                             @foreach($mats as $mat)
@@ -70,6 +70,9 @@
                         <input type="number" class="form-control form-control-sm" id="cantidad"
                                name="cantidad" style="width: 200px" disabled>
                     </div>
+                    <div class="text-danger" >
+                        <small id="errorAgregar" style="display:none;"></small>
+                    </div>
                     @csrf
                     <div>
                         <a id="addDetail" class="btn btn-success btn-sm disabled" href="#"
@@ -80,16 +83,13 @@
         </div>
         <div class="row">
             <div class="col-12 bg-white">
-                <table class="table table-hover">
+                <table class="table table-hover" id="detalleCanjesTable">
                     <thead>
                         <tr class="text-success">
                             <th scope="col">Material</th>
                             <th class="text-center" scope="col">Cantidad</th>
                             <th class="text-center" scope="col">Precio</th>
                             <th class="text-center" scope="col">Total</th>
-                            <th class="text-center" scope="col"></th>
-                            {{--<th scope="col" class="text-center">Editar</th>
-                            <th scope="col" class="text-center">Deshabilitar</th>--}}
                         </tr>
                     </thead>
                     <tbody>
@@ -98,14 +98,15 @@
                     <tfoot class="text-center">
                         <th></th>
                         <th></th>
-                        <th class="text-success" scope="col">Ecomonedas</th>
-                        <th class="text-success" scope="col"></th>
+                        <th class="text-success" scope="col"><span>Ecomonedas</span></th>
+                        <th id="totalCanje" class="text-success" scope="col"></th>
                     </tfoot>
                 </table>
             </div>
-            <div class="col-12 text-center">
-                <a role="button" href="#" class="btn btn-success disabled"
-                   style="width: 200px">Finalizar Registro</a>
+            <div class="col-12 text-center bg-white border border-success">
+                <a id="finalizarRegistro" role="button" href="{{ route('canjes.finalizar') }}"
+                   class="btn btn-success disabled"
+                   style="width: 200px; margin-top: 5px; margin-bottom: 5px">Finalizar Registro</a>
             </div>
         </div>
         <input type="hidden" name="canje_id" id="canje_id" value="">

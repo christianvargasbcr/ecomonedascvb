@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Canje extends Model
 {
-    protected $fillable = ['centro_id','cliente_id'];
+    protected $fillable = ['centro_id','cliente_id','total'];
 
     public function cliente(){
         return $this->belongsTo('App\User');

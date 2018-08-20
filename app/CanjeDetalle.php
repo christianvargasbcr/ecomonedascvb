@@ -12,7 +12,7 @@ class CanjeDetalle extends Model
         return $this->belongsTo('App\Canje');
     }
 
-    public function centro(){
+    public function material(){
         return $this->belongsTo('App\Material');
     }
 }

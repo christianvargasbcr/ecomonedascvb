@@ -18,6 +18,7 @@ class CreateCanjesTable extends Migration
             $table->increments('id');
             $table->integer('centro_id')->unsigned();
             $table->integer('cliente_id')->unsigned();
+            $table->double('total');
             $table->timestamps();
             $table->foreign('centro_id')
                 ->references('id')

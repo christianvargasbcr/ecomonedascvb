@@ -223,6 +223,11 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
             'as'=>'canjes.create',
         ]);
 
+        Route::post('create',[
+            'uses'=>'CanjeController@canjeCreate',
+            'as'=>'canjes.create',
+        ]);
+
         Route::post('store',[
             'uses'=>'CanjeController@canjeDetalleCreate',
             'as'=>'store.canjes',
