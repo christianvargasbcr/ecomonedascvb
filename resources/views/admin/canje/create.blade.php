@@ -103,6 +103,10 @@
                     </tfoot>
                 </table>
             </div>
+            <div class="col-12 text-center">
+                <a role="button" href="#" class="btn btn-success disabled"
+                   style="width: 200px">Finalizar Registro</a>
+            </div>
         </div>
         <input type="hidden" name="canje_id" id="canje_id" value="">
         <input type="hidden" name="cliente_id" id="cliente_id" value="">

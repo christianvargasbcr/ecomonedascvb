@@ -66,6 +66,14 @@ class CanjeController extends Controller
         return response()->json($canje);
     }
 
+    public function canjeDetalleCreate(Request $request){
+        $canje = new Canje;
+        $canje->centro_id = $request->input('centro_id');
+        $canje->cliente_id = $request->input('cliente_id');
+        $canje->save();
+        return response()->json($canje);
+    }
+
     public function getCanje(){
         if (Auth::user()->role_id == 2){
             $user = User::find(Auth::user()->id);
@@ -79,5 +87,9 @@ class CanjeController extends Controller
         else{
             return redirect()->route('principal');
         }
+    }
+
+    public function finalizarRegistroCanje(){
+        return view('admin.canje.index');
     }
 }
