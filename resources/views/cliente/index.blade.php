@@ -11,7 +11,7 @@
             </div>
             <br><br><br>
             <div class="card-group">
-                <a href="#">
+                <a href="{{ route('ciente.billetera') }}">
                     <div class="card" style="display:inline-block; width: 250px; height: 100%">
                         <br>
                         <img class="card-img-top" src="{{ Storage::disk('s3')->url('ecoimg/img/billetera.jpg') }}"
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="#">
+                <a href="{{ route('cupones-disponibles') }}">
                     <div class="card" style="display:inline-block; width: 250px; height: 100%">
                         <br>
                         <img class="card-img-top" src="{{ Storage::disk('s3')->url('ecoimg/img/compras2.jpg') }}"

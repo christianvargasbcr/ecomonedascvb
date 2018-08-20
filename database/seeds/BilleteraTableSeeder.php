@@ -14,21 +14,21 @@ class BilleteraTableSeeder extends Seeder
         $billetera = \App\Billetera::create([
             'saldo_canjes'=>'425',
             'saldo_compras'=>'0',
-            'saldo_disponible'=>'0',
+            'saldo_disponible'=>'425',
             'cliente_id'=>'2',
         ]);
 
         $billetera = \App\Billetera::create([
             'saldo_canjes'=>'270',
             'saldo_compras'=>'0',
-            'saldo_disponible'=>'0',
+            'saldo_disponible'=>'270',
             'cliente_id'=>'7',
         ]);
 
         $billetera = \App\Billetera::create([
             'saldo_canjes'=>'190',
             'saldo_compras'=>'0',
-            'saldo_disponible'=>'0',
+            'saldo_disponible'=>'190',
             'cliente_id'=>'8',
         ]);
 

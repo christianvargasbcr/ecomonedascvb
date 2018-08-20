@@ -44,7 +44,7 @@
         <a class="nav-link" href="#"><b>Billetera Electrónica</b></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#"><b>Canjear Ecomonedas</b></a>
+        <a class="nav-link" href="{{ route('cupones-disponibles') }}"><b>Canjear Ecomonedas</b></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{ route('ciente.historial-canjes') }}"><b>Historial de Canjes</b></a>
