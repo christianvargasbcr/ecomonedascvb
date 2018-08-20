@@ -252,6 +252,16 @@ Route::group(['prefix'=>'cliente','middleware'=>'auth'],function (){
         'uses'=>'ClienteController@getClienteIndex',
         'as'=>'cliente.index'
     ]);
+
+    Route::get('historial-canjes',[
+        'uses'=>'ClienteController@getHistorialCanjes',
+        'as'=>'ciente.historial-canjes',
+    ]);
+
+    Route::get('detalle-canje/{id}',[
+        'uses'=>'ClienteController@getDetalleCanje',
+        'as'=>'ciente.detalle-canje',
+    ]);
 });
 
 Auth::routes();

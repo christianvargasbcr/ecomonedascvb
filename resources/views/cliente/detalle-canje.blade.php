@@ -42,13 +42,13 @@
                 <div class="table-responsive-sm">
                     <table class="table table-hover">
                         <thead class="table-success">
-                            <tr>
-                                <th>Material</th>
+                        <tr>
+                            <th>Material</th>
 
-                                <th class="rigth">Precio</th>
-                                <th class="rigth">Cantidad</th>
-                                <th class="right">Monto</th>
-                            </tr>
+                            <th class="rigth">Precio</th>
+                            <th class="rigth">Cantidad</th>
+                            <th class="right">Monto</th>
+                        </tr>
                         </thead>
                         <tbody>
                         @foreach($canje->detalleCanjes as $det)
@@ -71,21 +71,18 @@
                     <div class="col-lg-4 col-sm-5 ml-auto">
                         <table class="table table-clear">
                             <tbody>
-                                <tr class="table-success text-white">
-                                    <td class="left">
-                                        <strong>Total</strong>
-                                    </td>
-                                    <td class="right">
-                                        <strong>{{ $canje->total }} Ecomonedas</strong>
-                                    </td>
-                                </tr>
+                            <tr class="table-success text-white">
+                                <td class="left">
+                                    <strong>Total</strong>
+                                </td>
+                                <td class="right">
+                                    <strong>{{ $canje->total }} Ecomonedas</strong>
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
-
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
