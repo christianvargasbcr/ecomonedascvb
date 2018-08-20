@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Billetera;
 use App\Canje;
 use App\CanjeDetalle;
 use App\Material;
@@ -21,7 +22,12 @@ class CanjeController extends Controller
                 return view('otros.centrodeshabilitado');
             }
             else{
-                //
+                $centroId = $user->centro->first()->id;
+                $canjes = Canje::with('cliente')
+                    ->where('centro_id',$centroId)
+                    ->orderBy('created_at','desc')
+                    ->get();
+                return view('admin.canje.index', ['canjes'=>$canjes]);
             }
         }
         else{
@@ -89,14 +95,17 @@ class CanjeController extends Controller
         return response()->json($result);
     }
 
-    public function getCanje(){
+    public function getCanje($id){
         if (Auth::user()->role_id == 2){
             $user = User::find(Auth::user()->id);
             if ($user->centro->isEmpty()){
                 return view('otros.centrodeshabilitado');
             }
             else{
-                //
+                $canje = Canje::with('cliente','centro','detalleCanjes')
+                    ->where('id',$id)
+                    ->first();
+                return view('admin.canje.detail',['canje'=>$canje]);
             }
         }
         else{
@@ -104,7 +113,29 @@ class CanjeController extends Controller
         }
     }
 
-    public function finalizarRegistroCanje(){
-        return view('admin.canje.index');
+    public function finalizarRegistroCanje(Request $request){
+        if (Auth::user()->role_id == 2){
+            $user = User::find(Auth::user()->id);
+            if ($user->centro->isEmpty()){
+                return view('otros.centrodeshabilitado');
+            }
+            else{
+                $id = Input::get('canje_id');
+                $canje = Canje::find($id);
+                $billetera = Billetera::where('cliente_id',$canje->cliente_id)->first();
+                $total = $billetera->saldo_canjes + $canje->total;
+                $billetera->saldo_canjes = $total;
+                $billetera->save();
+                $centroId = $user->centro->first()->id;
+                $canjes = Canje::with('cliente')
+                    ->where('centro_id',$centroId)
+                    ->orderBy('created_at','desc')
+                    ->get();
+                return route('canjes.index', ['canjes'=>$canjes]);
+            }
+        }
+        else{
+            return redirect()->route('principal');
+        }
     }
 }

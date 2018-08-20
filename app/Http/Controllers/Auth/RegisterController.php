@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Billetera;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -72,6 +73,13 @@ class RegisterController extends Controller
             'telefono' => $data['phone'],
             'password' => Hash::make($data['password']),
             'role_id' => $data['role'],
+        ]);
+
+        $billetera = Billetera::create([
+            'saldo_canjes' => 0,
+            'saldo_compras' => 0,
+            'saldo_disponible' => 0,
+            'cliente_id' => $user->id
         ]);
 
         return $user;

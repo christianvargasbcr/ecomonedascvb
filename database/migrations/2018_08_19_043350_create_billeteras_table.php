@@ -15,7 +15,15 @@ class CreateBilleterasTable extends Migration
     {
         Schema::create('billeteras', function (Blueprint $table) {
             $table->increments('id');
+            $table->double('saldo_canjes');
+            $table->double('saldo_compras');
+            $table->double('saldo_disponible');
+            $table->integer('cliente_id')->unsigned();
             $table->timestamps();
+            $table->foreign('cliente_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 

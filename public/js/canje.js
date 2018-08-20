@@ -77,11 +77,28 @@ $(document).ready(function () {
                     );
 
                     $("#totalCanje").replaceWith(
-                        "<th id='totalCanje' class='text-success' scope='col'>"+data[0]['total']+"</th>"
+                        "<th id='totalCanje' class='text-success' scope='col'>"+data[0]['id']+"</th>"
                     );
                     $("#finalizarRegistro").removeClass('btn btn-success btn-sm disabled').addClass('btn btn-success btn-sm');
+                    $("#canje_id").val(data[0]['id']);
                 }
             }
         });
+    });
+
+    $("#finalizarRegistro").click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'get',
+            url: 'finalizar/',
+            data: {
+                '_token': $('input[name=_token]').val(),
+                'canje_id': $('input[name=canje_id]').val()
+            },
+            success:function (data) {
+                window.location = data;
+            }
+        });
+
     });
 });
