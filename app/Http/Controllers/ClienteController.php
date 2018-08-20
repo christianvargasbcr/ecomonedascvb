@@ -62,18 +62,24 @@ class ClienteController extends Controller
 
     public function realizarCompra(Request $request){
         $cliente_id = Auth::user()->id;
-        $cupon = Cupon::find($request->input('cupon_id'));
-        $compra = new Compra();
-        $compra->cupon_id = $cupon->id;
-        $compra->cliente_id = $cliente_id;
-        $compra->save();
         $billetera = Billetera::with('cliente')->where('cliente_id',$cliente_id)->first();
-        $compras = $billetera->saldo_compras + $cupon->precio;
-        $billetera->saldo_compras = $compras;
-        $disponible = $billetera->saldo_disponible - $cupon->precio;
-        $billetera->saldo_disponible = $disponible;
-        $billetera->save();
-        return redirect()->route('ciente.billetera');
+        $cupon = Cupon::find($request->input('cupon_id'));
+        if ($billetera->saldo_disponible > $cupon->precio){
+            $compra = new Compra();
+            $compra->cupon_id = $cupon->id;
+            $compra->cliente_id = $cliente_id;
+            $compra->save();
+            $compras = $billetera->saldo_compras + $cupon->precio;
+            $billetera->saldo_compras = $compras;
+            $disponible = $billetera->saldo_disponible - $cupon->precio;
+            $billetera->saldo_disponible = $disponible;
+            $billetera->save();
+            return redirect()->route('ciente.billetera');
+        }
+        else {
+            redirect()->route('principal');
+        }
+
     }
 
     public function getBilletera(){
